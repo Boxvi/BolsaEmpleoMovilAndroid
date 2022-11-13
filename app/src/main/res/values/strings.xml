@@ -36,6 +36,10 @@
     <string name="fecha_fin_convocatoria">Fecha Fin Convocatoria</string>
 
     <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="consultas_admin">CONSULTAS</string>
+    <string name="consultas_curriculum">CONSULTAR CURRICULUM</string>
+    <string name="perfil_empresa">PERFIL DE EMPRESA</string>
+    <string name="razon_social_mayus">RAZON SOCIAL</string>
 
 
 </resources>

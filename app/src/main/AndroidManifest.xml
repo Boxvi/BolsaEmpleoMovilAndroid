@@ -10,12 +10,14 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MOVILGC1">
         <activity
+                android:name=".InicioAdminBusqueda"
+                android:exported="true"/>
+        <activity
                 android:name=".AdminBusqueda"
                 android:exported="true"/>
         <activity
                 android:name=".InicioCV"
                 android:exported="true"/>
-
         <activity
                 android:name=".MainActivity"
                 android:exported="true">
