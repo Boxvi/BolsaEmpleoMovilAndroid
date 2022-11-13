@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         tools:context=".InicioCV">
 
+    <!--
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -15,13 +16,15 @@
             android:id="@+id/linearLayoutCompat" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-        <ImageView
-                android:gravity="right"
+
+        <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                tools:srcCompat="@drawable/ic_baseline_menu_50"
-                android:id="@+id/ic_baseline_menu_50"/>
+                android:src="@drawable/ic_baseline_menu_50"
+                android:id="@+id/ic_baseline_menu_50">
+        </ImageButton>
     </LinearLayout>
+-->
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -32,13 +35,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-        <ImageView
+        <ImageButton
                 android:gravity="right"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                tools:srcCompat="@drawable/ic_baseline_arrow_back_50"
-                android:id="@+id/ic_baseline_arrow_back_50"/>
-
+                android:src="@drawable/ic_baseline_arrow_back_50"
+                android:id="@+id/ic_baseline_arrow_back_50" android:onClick="irMain"/>
     </LinearLayout>
 
 

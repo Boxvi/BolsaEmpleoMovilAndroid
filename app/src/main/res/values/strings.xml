@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MOVILGC1</string>
+    <string name="app_name">ISTA EMPLEO</string>
     <string name="curriculum_vitae">Curriculum Vitae</string>
     <string name="mensaje_informativo">Para una mejor visualizacion visite nuestra pagina web</string>
     <string name="datos_personales">DATOS PERSONALES</string>
@@ -34,6 +34,8 @@
     <string name="ubicacion">Ubicacion</string>
     <string name="fecha_inicio_convocatoria">Fecha Inicio Convocatoria</string>
     <string name="fecha_fin_convocatoria">Fecha Fin Convocatoria</string>
+
+    <string name="cerrar_sesion">Cerrar Sesion</string>
 
 
 </resources>
