@@ -9,20 +9,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class InicioCV extends AppCompatActivity {
+public class InicioBuscoEmpleo extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_cv);
+        setContentView(R.layout.activity_inicio_busco_empleo);
     }
-
-    public void goInicioBuscoEmpleo(View view) {
-        Intent intent = new Intent(this, InicioBuscoEmpleo.class);
-        startActivity(intent);
-        finish();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,5 +35,27 @@ public class InicioCV extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //ir Curriculum vitae
+    public void goCurriculumVitae(View view) {
+        Intent intent = new Intent(this, InicioCV.class);
+        startActivity(intent);
+        finish();
+    }
+
+    //ir Ofertas Laborales
+    public void goOfertasLaborales(View view) {
+        Intent intent = new Intent(this, OfertasLaborales.class);
+        startActivity(intent);
+        finish();
+    }
+
+    //if Ofertas aplicadas
+    public void goOfertasAplicadas(View view) {
+        Intent intent = new Intent(this, OfertasAplicadas.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 }

@@ -1,20 +1,20 @@
 package ec.edu.insta.movilgc1;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class InicioCV extends AppCompatActivity {
+public class OfertasLaborales extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_cv);
+        setContentView(R.layout.activity_ofertas_laborales);
     }
 
     public void goInicioBuscoEmpleo(View view) {
@@ -22,7 +22,6 @@ public class InicioCV extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,5 +40,4 @@ public class InicioCV extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

@@ -42,4 +42,17 @@
     <string name="razon_social_mayus">RAZON SOCIAL</string>
 
 
+    <string name="busco_empleo">BUSCO EMPLEO</string>
+    <string name="eres_admin">¿ERES ADMIN?</string>
+
+    <string name="ofertas_laborales">OFERTAS LABORALES</string>
+    <string name="ofertas_aplicadas">OFERTAS APLICADAS</string>
+    <string name="title_activity_ofertas_aplicadas">OfertasAplicadas</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login_admin">LoginAdmin</string>
+    <string name="usuario">EMAIL</string>
+    <string name="contrasena">CONTRASENA</string>
+    <string name="ingresar">INGRESAR</string>
+
 </resources>

@@ -22,81 +22,66 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/consultar_ofertas"/>
     </LinearLayout>
+
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="50dp"
             android:id="@+id/linearLayout2" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="25dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal"
-                android:id="@+id/btn_consultar_ofertas">
-            <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="130dp"
-                    android:layout_margin="10dp"
-                    android:src="@color/cardview_dark_background"
-                    android:id="@+id/img_consultar_ofertas"/>
+                android:orientation="horizontal">
             <Button
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_gravity="center"
-                    android:text="@string/consultar_ofertas"
-            />
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_consultas_curriculum"
+                    android:drawableLeft="@drawable/ic_baseline_library_books_120"
+                    android:text="@string/consultas_curriculum"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goConsultarCurriculum"/>
+
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="25dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal"
-                android:id="@+id/btn_perfil_empresa">
-            <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="130dp"
-                    android:layout_margin="10dp"
-                    android:src="@color/cardview_dark_background"
-                    android:id="@+id/img_perfil_empresa"/>
-
+                android:orientation="horizontal">
             <Button
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_perfil_empresa"
+                    android:drawableLeft="@drawable/ic_baseline_house_120"
                     android:text="@string/perfil_empresa"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goPerfilEmpresa"/>
 
-            />
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_margin="20dp"
+                android:layout_margin="25dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal"
-                android:id="@+id/btn_razon_social_mayus">
-            <ImageView
-                    android:layout_width="140dp"
-                    android:src="@color/cardview_dark_background"
-                    android:layout_height="130dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/img_razon_social"/>
-
+                android:orientation="horizontal">
             <Button
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_razon_social_mayus"
+                    android:drawableLeft="@drawable/ic_baseline_email_120"
                     android:text="@string/razon_social_mayus"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goRazonSocial"/>
 
-            />
         </LinearLayout>
-
 
     </LinearLayout>
 
