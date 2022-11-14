@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".InicioAdminBusqueda">
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/linearLayout3"
+            app:layout_constraintHorizontal_bias="0.0">
+        <TextView
+                android:text="@string/consultas_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/consultar_ofertas"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:id="@+id/linearLayout2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="25dp"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_consultas_curriculum"
+                    android:drawableLeft="@drawable/ic_baseline_library_books_120"
+                    android:text="@string/consultas_curriculum"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goConsultarCurriculum"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="25dp"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_perfil_empresa"
+                    android:drawableLeft="@drawable/ic_baseline_house_120"
+                    android:text="@string/perfil_empresa"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goPerfilEmpresa"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="25dp"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/btn_razon_social_mayus"
+                    android:drawableLeft="@drawable/ic_baseline_email_120"
+                    android:text="@string/razon_social_mayus"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeColor="#000"
+                    android:textColor="@color/black" android:onClick="goRazonSocial"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--
+        <TextView
+                    android:text="CONSULTAS"
+                    android:layout_width="203dp"
+                    android:layout_height="52dp" android:id="@+id/textView"
+                    tools:layout_editor_absoluteX="91dp"
+                    tools:layout_editor_absoluteY="16dp" android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            <androidx.cardview.widget.CardView
+                    android:layout_width="409dp"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="76dp" app:cardBackgroundColor="#040303"/>
+            <androidx.cardview.widget.CardView
+                    android:layout_width="409dp"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="250dp" android:id="@+id/cardView"/>
+            <androidx.cardview.widget.CardView
+                    android:layout_width="409dp"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="435dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="390dp"
+                    android:layout_height="149dp" tools:layout_editor_absoluteY="84dp" tools:layout_editor_absoluteX="8dp">
+
+                <Button
+                        android:text="Consultar Curriculum"
+                        android:layout_width="153dp"
+                        android:layout_height="121dp" android:id="@+id/btn_curriculum" tools:layout_editor_absoluteY="10dp"
+                        tools:layout_editor_absoluteX="228dp"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imageView"
+                        tools:layout_editor_absoluteY="11dp" tools:layout_editor_absoluteX="12dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="391dp"
+                    android:layout_height="154dp" tools:layout_editor_absoluteY="260dp" tools:layout_editor_absoluteX="7dp">
+
+                <ImageView
+                        android:layout_width="136dp"
+                        android:layout_height="117dp" app:srcCompat="@android:drawable/ic_dialog_dialer"
+                        android:id="@+id/imageView2" tools:layout_editor_absoluteY="16dp" tools:layout_editor_absoluteX="13dp"/>
+                <Button
+                        android:text="Perfil de empresas"
+                        android:layout_width="157dp"
+                        android:layout_height="127dp" android:id="@+id/btn_perfil" tools:layout_editor_absoluteY="16dp"
+                        tools:layout_editor_absoluteX="228dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="389dp"
+                    android:layout_height="144dp" tools:layout_editor_absoluteY="449dp" tools:layout_editor_absoluteX="13dp">
+
+                <ImageView
+                        android:layout_width="146dp"
+                        android:layout_height="127dp" app:srcCompat="@android:drawable/checkbox_on_background"
+                        android:id="@+id/imageView3" tools:layout_editor_absoluteY="8dp" tools:layout_editor_absoluteX="5dp"/>
+                <Button
+                        android:text="OFERTAS LABORALES"
+                        android:layout_width="162dp"
+                        android:layout_height="127dp" android:id="@+id/btn_ofertas" tools:layout_editor_absoluteY="8dp"
+                        tools:layout_editor_absoluteX="221dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="71dp" app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+                    android:id="@+id/img_menu" tools:layout_editor_absoluteX="346dp" tools:layout_editor_absoluteY="5dp"/>
+
+
+        -->

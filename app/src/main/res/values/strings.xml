@@ -1,3 +1,58 @@
 <resources>
-    <string name="app_name">MOVILGC1</string>
+    <string name="app_name">ISTA EMPLEO</string>
+    <string name="curriculum_vitae">Curriculum Vitae</string>
+    <string name="mensaje_informativo">Para una mejor visualizacion visite nuestra pagina web</string>
+    <string name="datos_personales">DATOS PERSONALES</string>
+    <string name="nombres_apellidos">Nombres y Apellidos:</string>
+    <string name="fecha_nacimiento">Fecha de Nacimiento:</string>
+    <string name="cedula_ciudadania">Cedula Ciudadania:</string>
+    <string name="direccion">Direccion:</string>
+    <string name="telefono">Telefono:</string>
+    <string name="correo_electronico">Correo Electronico:</string>
+    <string name="formacion_academica">FORMACION ACADEMICA</string>
+    <string name="logros">LOGROS</string>
+    <string name="logros_nombres">Logros:</string>
+    <string name="experencia_laboral">EXPERIENCIA LABORAL</string>
+    <string name="experencia_laboral_nombre">Experiencia:</string>
+    <string name="referencias_personales">REFERENCIAS PERSONALES</string>
+    <string name="referencias_personales_nombre">Referencias:</string>
+    <string name="capacitaciones">CAPACITACIONES</string>
+    <string name="capacitaciones_nombre">Capacitaciones</string>
+    <string name="consultar_ofertas">Consultar Ofertas</string>
+
+
+    <string name="informacion_buscada">Informacion Buscada</string>
+    <string name="razon_social">Razon Social</string>
+    <string name="cargo">Cargo</string>
+    <string name="tipo_cargo">Tipo Cargo</string>
+    <string name="area_conocimiento">Area Conocimiento</string>
+    <string name="sector_empresarial">Sector Empresarial</string>
+    <string name="salario">Salario</string>
+    <string name="jornada">Jornada</string>
+    <string name="requisitos_academicos">Requisitos Academicos</string>
+    <string name="experiencia">Experiencia</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="fecha_inicio_convocatoria">Fecha Inicio Convocatoria</string>
+    <string name="fecha_fin_convocatoria">Fecha Fin Convocatoria</string>
+
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="consultas_admin">CONSULTAS</string>
+    <string name="consultas_curriculum">CONSULTAR CURRICULUM</string>
+    <string name="perfil_empresa">PERFIL DE EMPRESA</string>
+    <string name="razon_social_mayus">RAZON SOCIAL</string>
+
+
+    <string name="busco_empleo">BUSCO EMPLEO</string>
+    <string name="eres_admin">¿ERES ADMIN?</string>
+
+    <string name="ofertas_laborales">OFERTAS LABORALES</string>
+    <string name="ofertas_aplicadas">OFERTAS APLICADAS</string>
+    <string name="title_activity_ofertas_aplicadas">OfertasAplicadas</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login_admin">LoginAdmin</string>
+    <string name="usuario">EMAIL</string>
+    <string name="contrasena">CONTRASENA</string>
+    <string name="ingresar">INGRESAR</string>
+
 </resources>

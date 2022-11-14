@@ -10,6 +10,43 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MOVILGC1">
         <activity
+                android:name=".LoginAdmin"
+                android:exported="true"/>
+        <activity
+                android:name=".LoginEmpleado"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.login.LoginAdmin"
+                android:exported="true"
+                android:label="@string/title_activity_login_admin"/>
+        <activity
+                android:name=".RazonSocial"
+                android:exported="true"/>
+        <activity
+                android:name=".PerfilEmpresa"
+                android:exported="true"/>
+        <activity
+                android:name=".ConsultarCurriculum"
+                android:exported="true"/>
+        <activity
+                android:name=".OfertasAplicadas"
+                android:exported="true"/>
+        <activity
+                android:name=".OfertasLaborales"
+                android:exported="true"/>
+        <activity
+                android:name=".InicioBuscoEmpleo"
+                android:exported="true"/>
+        <activity
+                android:name=".InicioAdminBusqueda"
+                android:exported="true"/>
+        <activity
+                android:name=".AdminBusqueda"
+                android:exported="true"/>
+        <activity
+                android:name=".InicioCV"
+                android:exported="true"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>
