@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InicioEmpleado">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="420dp"
+        android:layout_height="106dp"
+        android:background="#1F4593"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="97dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="48dp"
+        android:text="Empleo"
+        android:textColor="@color/white"
+        android:textSize="70px"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="85dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/ista"
+        android:textColor="@color/white"
+        android:textSize="70px"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461"
+        app:srcCompat="@drawable/icons8_malet_n_80__1_" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="415dp"
+        android:layout_height="55dp"
+        android:background="#2E2EF5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Busco Empleo"
+        android:textColor="@color/white"
+        android:textSize="70px"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="328dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/curriculum" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="336dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="16dp"
+        android:onClick="Ofertas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/ofertas_laborales"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="267dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="16dp"
+        android:onClick="Aplicadas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ofertas_aplicadas" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
