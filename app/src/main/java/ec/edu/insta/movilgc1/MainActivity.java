@@ -21,14 +21,13 @@ public class MainActivity extends AppCompatActivity {
     public void goLoginEmpleado(View view) {
         Intent intent = new Intent(this, LoginEmpleado.class);
         startActivity(intent);
-        finish();
+
     }
 
     //ir login admin
     public void goLoginAdmin(View view) {
         Intent intent = new Intent(this, LoginAdmin.class);
         startActivity(intent);
-        finish();
     }
 
 

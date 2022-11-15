@@ -20,7 +20,7 @@ public class InicioCV extends AppCompatActivity {
     public void goInicioBuscoEmpleo(View view) {
         Intent intent = new Intent(this, InicioBuscoEmpleo.class);
         startActivity(intent);
-        finish();
+
     }
 
 

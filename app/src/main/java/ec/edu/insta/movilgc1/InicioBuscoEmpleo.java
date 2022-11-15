@@ -40,21 +40,21 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     public void goCurriculumVitae(View view) {
         Intent intent = new Intent(this, InicioCV.class);
         startActivity(intent);
-        finish();
+
     }
 
     //ir Ofertas Laborales
     public void goOfertasLaborales(View view) {
         Intent intent = new Intent(this, OfertasLaborales.class);
         startActivity(intent);
-        finish();
+
     }
 
     //if Ofertas aplicadas
     public void goOfertasAplicadas(View view) {
         Intent intent = new Intent(this, OfertasAplicadas.class);
         startActivity(intent);
-        finish();
+
     }
 
 
