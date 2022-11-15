@@ -54,5 +54,8 @@
                 android:id="@+id/txtSearch"/>
 
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="391dp"
+            android:layout_height="560dp" tools:layout_editor_absoluteY="96dp" tools:layout_editor_absoluteX="1dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
