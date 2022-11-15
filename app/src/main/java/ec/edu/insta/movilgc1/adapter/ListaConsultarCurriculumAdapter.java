@@ -2,23 +2,21 @@ package ec.edu.insta.movilgc1.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import org.jetbrains.annotations.NotNull;
 
-import ec.edu.insta.movilgc1.R;
-
-public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfertasLaboralesAdapter.ViewHolder> {
+public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaConsultarCurriculumAdapter.ViewHolder> {
 
     @NonNull
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
 
     }
 
@@ -27,13 +25,11 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-
-
         }
     }
 }
+

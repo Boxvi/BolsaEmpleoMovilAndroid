@@ -36,7 +36,7 @@
                 android:text="@string/consultas_curriculum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ofertas_laborales" />
+                android:id="@+id/ofertas_laborales"/>
     </LinearLayout>
 
 
@@ -55,5 +55,9 @@
                 android:id="@+id/txtSearch"/>
 
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="391dp"
+            android:layout_height="560dp" tools:layout_editor_absoluteY="96dp" tools:layout_editor_absoluteX="1dp"
+            tools:ignore="MissingConstraints"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
