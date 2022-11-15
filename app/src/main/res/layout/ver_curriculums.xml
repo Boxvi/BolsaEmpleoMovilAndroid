@@ -78,7 +78,7 @@
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
-                    android:id="@+id/imgPersona" android:layout_weight="2"/>
+                    android:id="@+id/imgEmpresa" android:layout_weight="2"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
 
@@ -90,7 +90,7 @@
             <TextView
                     android:text="nombres_apellidos"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent" android:id="@+id/txt_nombres_apellidos"
+                    android:layout_height="match_parent" android:id="@+id/txt_nombres_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -102,7 +102,7 @@
             <TextView
                     android:text="fecha_nacimiento"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_fecha_nacimiento"
+                    android:layout_height="wrap_content" android:id="@+id/txt_ruc"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -115,7 +115,7 @@
             <TextView
                     android:text="cedula_ciudadania"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_cedula_ciudadania"
+                    android:layout_height="wrap_content" android:id="@+id/txt_tipo_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -139,7 +139,7 @@
             <TextView
                     android:text="telefono"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_telefono" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/txt_sector" android:layout_weight="1"/>
         </TableRow>
 
 
@@ -152,7 +152,7 @@
             <TextView
                     android:text="logros_nombres"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_logros_nombres"
+                    android:layout_height="wrap_content" android:id="@+id/txt_act_economico"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -167,7 +167,7 @@
             <TextView
                     android:text="experencia_laboral_nombre"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_experencia_laboral_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/txt_razon_social"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -182,7 +182,7 @@
             <TextView
                     android:text="referencias_personales_nombre"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_referencias_personales_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/txt_correo_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -197,7 +197,7 @@
             <TextView
                     android:text="capacitaciones_nombre"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_capacitaciones_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/txt_telefono_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
