@@ -22,26 +22,22 @@
                     android:id="@+id/txt_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ID"
-                    android:textSize="24dp"/>
+                    android:text="ID"/>
             <TextView
                     android:id="@+id/txt_nombres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nombre"
-                    android:textSize="24dp"/>
+                    android:text="Nombre"/>
             <TextView
                     android:id="@+id/txt_direccion_alumno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Direccion"
-                    android:textSize="24dp"/>
+                    android:text="Direccion"/>
             <TextView
                     android:id="@+id/txt_correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Correo"
-                    android:textSize="24dp"/>
+                    android:text="Correo"/>
 
             <LinearLayout
                     android:layout_width="wrap_content"

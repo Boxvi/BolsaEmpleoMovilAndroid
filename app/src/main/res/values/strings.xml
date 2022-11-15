@@ -53,6 +53,15 @@
     <string name="title_activity_login_admin">LoginAdmin</string>
     <string name="usuario">EMAIL</string>
     <string name="contrasena">CONTRASENA</string>
-    <string name="ingresar">INGRESAR</string>
+
+
+    <string name="empresa">Empresa</string>
+    <string name="id">ID</string>
+    <string name="aplicar">aplicar</string>
+    <string name="asterico">*</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="ver">ver</string>
+    <string name="validar">VALIDAR</string>
+
 
 </resources>
