@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1.model.usuario;
+package ec.edu.insta.movilgc1.model;
 
 import android.content.Context;
 
