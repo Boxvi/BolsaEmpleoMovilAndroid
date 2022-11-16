@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import ec.edu.insta.movilgc1.R;
 
 public class InicioCV extends AppCompatActivity {
 

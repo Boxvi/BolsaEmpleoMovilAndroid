@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -8,19 +8,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import ec.edu.insta.movilgc1.R;
 
-public class OfertasLaborales extends AppCompatActivity {
+public class PerfilEmpresa extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ofertas_laborales);
-    }
-
-    public void goInicioBuscoEmpleo(View view) {
-        Intent intent = new Intent(this, InicioBuscoEmpleo.class);
-        startActivity(intent);
-        finish();
+        setContentView(R.layout.activity_perfil_empresa);
     }
 
     @Override
@@ -39,5 +34,12 @@ public class OfertasLaborales extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //ir a inicio admin busqeuda
+    public void goInicioAdminBusqueda(View view) {
+        Intent intent = new Intent(this, InicioAdminBusqueda.class);
+        startActivity(intent);
+        finish();
     }
 }

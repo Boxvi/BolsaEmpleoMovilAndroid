@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -8,13 +8,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import ec.edu.insta.movilgc1.R;
 
-public class InicioAdminBusqueda extends AppCompatActivity {
+public class ConsultarCurriculum extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_admin_busqueda);
+        setContentView(R.layout.activity_consultar_curriculum);
     }
 
     @Override
@@ -35,26 +36,10 @@ public class InicioAdminBusqueda extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //ir a consultar curriculum
-    public void goConsultarCurriculum( View view) {
-        Intent intent = new Intent(this, ConsultarCurriculum.class);
+    //ir a inicio admin busqeuda
+    public void goInicioAdminBusqueda(View view) {
+        Intent intent = new Intent(this, InicioAdminBusqueda.class);
         startActivity(intent);
         finish();
     }
-
-    //ir a perfil de empresa
-    public void goPerfilEmpresa( View view) {
-        Intent intent = new Intent(this, PerfilEmpresa.class);
-        startActivity(intent);
-        finish();
-    }
-
-    //ir a razon social
-    public void goRazonSocial( View view) {
-        Intent intent = new Intent(this, RazonSocial.class);
-        startActivity(intent);
-        finish();
-    }
-
-
 }
