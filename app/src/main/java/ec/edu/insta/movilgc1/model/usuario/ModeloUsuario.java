@@ -3,6 +3,7 @@ package ec.edu.insta.movilgc1.model.usuario;
 import android.content.Context;
 import android.database.Cursor;
 import ec.edu.insta.movilgc1.dbtemp.SQLiteOpenHelper;
+import ec.edu.insta.movilgc1.model.CrudGeneric;
 
 import java.util.ArrayList;
 
