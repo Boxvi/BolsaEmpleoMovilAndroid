@@ -1,26 +1,34 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import ec.edu.insta.movilgc1.R;
 
-public class PerfilEmpresa extends AppCompatActivity {
+public class DatosPerfilEmpresa extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_empresa);
+        setContentView(R.layout.activity_datos_perfil_empresa);
     }
+
+
+    public void goPerfilEmpresa(View view) {
+        Intent intent = new Intent(this, InicioAdminBusqueda.class);
+        startActivity(intent);
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -33,12 +41,5 @@ public class PerfilEmpresa extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    //ir a inicio admin busqeuda
-    public void goInicioAdminBusqueda(View view) {
-        Intent intent = new Intent(this, InicioAdminBusqueda.class);
-        startActivity(intent);
-        finish();
     }
 }

@@ -51,7 +51,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_login_admin">LoginAdmin</string>
-    <string name="usuario">EMAIL</string>
+    <string name="usuario">USUARIO</string>
     <string name="contrasena">CONTRASENA</string>
 
 
@@ -62,6 +62,7 @@
     <string name="cancelar">CANCELAR</string>
     <string name="ver">ver</string>
     <string name="validar">VALIDAR</string>
+    <string name="ingresar">INGRESAR</string>
 
 
 </resources>

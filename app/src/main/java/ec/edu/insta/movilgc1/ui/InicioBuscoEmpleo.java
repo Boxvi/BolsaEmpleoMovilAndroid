@@ -1,20 +1,22 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import ec.edu.insta.movilgc1.R;
 
-public class RazonSocial extends AppCompatActivity {
+public class InicioBuscoEmpleo extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_razon_social);
+        setContentView(R.layout.activity_inicio_busco_empleo);
     }
 
     @Override
@@ -35,10 +37,26 @@ public class RazonSocial extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //ir a inicio admin busqeuda
-    public void goInicioAdminBusqueda(View view) {
-        Intent intent = new Intent(this, InicioAdminBusqueda.class);
+    //ir Curriculum vitae
+    public void goCurriculumVitae(View view) {
+        Intent intent = new Intent(this, InicioCV.class);
         startActivity(intent);
-        finish();
+
     }
+
+    //ir Ofertas Laborales
+    public void goOfertasLaborales(View view) {
+        Intent intent = new Intent(this, OfertasLaborales.class);
+        startActivity(intent);
+
+    }
+
+    //if Ofertas aplicadas
+    public void goOfertasAplicadas(View view) {
+        Intent intent = new Intent(this, OfertasAplicadas.class);
+        startActivity(intent);
+
+    }
+
+
 }

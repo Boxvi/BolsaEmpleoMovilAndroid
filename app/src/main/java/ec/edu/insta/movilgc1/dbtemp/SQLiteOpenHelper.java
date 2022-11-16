@@ -1,0 +1,67 @@
+package ec.edu.insta.movilgc1.dbtemp;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.Nullable;
+
+public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "dbtemp";
+    private static final int DATABASE_VERSION = 2;
+
+    /*
+    private static String TABLA_USUARIOS = "create table usuarios (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "username text, " +
+            "cedula text, " +
+            "nombres text, " +
+            "apellidos text, " +
+            "genero text, " +
+            "fechaNacimiento text, " +
+            "ciudad text, " +
+            "direccion text, " +
+            "estadoCivil text)";
+*/
+
+    private static String TABLA_USUARIOS = "create table login (" +
+            "id INTEGER PRIMARY KEY  NOT NULL," +
+            "username text, " +
+            "pasword text, " +
+            "email text, " +
+            "telefono text, " +
+            "estado text, " +
+            "fechaCreacion text, " +
+            "rol text)";
+
+    private static String DROP_TABLE_USUARIOS = "DROP TABLE IF EXISTS login";
+
+
+    //AUTOINCREMENT
+
+    public SQLiteOpenHelper(@Nullable Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(TABLA_USUARIOS);
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        sqLiteDatabase.execSQL(DROP_TABLE_USUARIOS);
+        onCreate(sqLiteDatabase);
+    }
+
+
+    public Cursor query(String sql) {
+        return this.getReadableDatabase().rawQuery(sql, null);
+    }
+
+    public void noQuery(String noSql) {
+        this.getWritableDatabase().execSQL(noSql);
+    }
+}

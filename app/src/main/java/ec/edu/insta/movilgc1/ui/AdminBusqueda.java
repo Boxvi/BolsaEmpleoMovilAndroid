@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1;
+package ec.edu.insta.movilgc1.ui;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -8,17 +8,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import ec.edu.insta.movilgc1.R;
 
-public class OfertasAplicadas extends AppCompatActivity {
+public class AdminBusqueda extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ofertas_aplicadas);
+        setContentView(R.layout.activity_admin_busqueda);
     }
 
-    public void goInicioBuscoEmpleo(View view) {
-        Intent intent = new Intent(this, InicioBuscoEmpleo.class);
+    //ir a main
+    public void irMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
@@ -33,11 +35,12 @@ public class OfertasAplicadas extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cerrar_sesion) {
-            Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            Toast.makeText(this, "SESION CERRADA CON SATISFACCION", Toast.LENGTH_SHORT).show();
         }
+
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
