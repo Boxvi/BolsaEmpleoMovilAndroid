@@ -13,6 +13,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.model.empresa.Empresa;
+import ec.edu.insta.movilgc1.model.empresa.ModeloEmpresa;
+import ec.edu.insta.movilgc1.model.estudiante.Estudiante;
+import ec.edu.insta.movilgc1.model.estudiante.ModeloEstudiante;
 import ec.edu.insta.movilgc1.model.usuario.ModeloUsuario;
 import ec.edu.insta.movilgc1.model.usuario.Usuario;
 import org.jetbrains.annotations.NotNull;
@@ -22,48 +26,53 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Bundle bundle = new Bundle();
 
-    Button btn_busco_empleo, btn_empleador;
+
+    private Button btn_busco_empleo, btn_eres_admin;
+
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        cargarDatosUsuario();
+        cargarDatosPerfilEmpresa();
+        cargarConsultarCurriculum();
 
         btn_busco_empleo = findViewById(R.id.btn_busco_empleo);
+        btn_eres_admin = findViewById(R.id.btn_eres_admin);
 
         btn_busco_empleo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datos();
+                Bundle bundle = new Bundle();
+                bundle.putString("tipo", "BUSCO EMPLEO");
+                intent = new Intent(MainActivity.this, LoginGeneral.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
 
+            }
+        });
+
+        btn_eres_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("tipo", "ERES ADMIN");
+                intent = new Intent(MainActivity.this, LoginGeneral.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
 
-    //ir login empleado
-    public void goLoginEmpleado(View view) {
-        bundle.putString("tipo", "BUSCO EMPLEO");
-        Intent intent = new Intent(this, LoginGeneral.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
 
-    }
-
-    //ir login admin
-    public void goLoginAdmin(View view) {
-        bundle.putString("tipo", "ERES ADMIN?");
-        Intent intent = new Intent(this, LoginGeneral.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
-
-    public void datos() {
+    public void cargarDatosUsuario() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios";
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null,  new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
@@ -100,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
         requestQueue.add(jsonArrayRequest);
 
     }
@@ -119,5 +127,142 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("rol"));
         return modeloUsuario;
     }
+
+
+    public void cargarDatosPerfilEmpresa() {
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/empresas";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    ModeloEmpresa modeloEmpresa = new ModeloEmpresa();
+
+                    ArrayList<Empresa> usuarioArrayList = modeloEmpresa.read(MainActivity.this);
+
+                    if (usuarioArrayList == null) {
+                        for (int i = usuarioArrayList.size(); i < response.length(); i++) {
+                            modeloEmpresa = getModeloEmpresa(response, i);
+                            modeloEmpresa.create(MainActivity.this);
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOS", Toast.LENGTH_SHORT).show();
+                    } else {
+                        for (int i = usuarioArrayList.size(); i < response.length(); i++) {
+                            modeloEmpresa = getModeloEmpresa(response, i);
+                            modeloEmpresa.create(MainActivity.this);
+                        }
+                        for (int i = 0; i < response.length(); i++) {
+                            modeloEmpresa = getModeloEmpresa(response, i);
+                            modeloEmpresa.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+
+    }
+
+    @NotNull
+    private ModeloEmpresa getModeloEmpresa(JSONArray response, int i) throws JSONException {
+        ModeloEmpresa modeloEmpresa;
+        modeloEmpresa = new ModeloEmpresa(
+                response.getJSONObject(i).getInt("id"),
+                response.getJSONObject(i).getString("sectorEmpresarial"),
+                response.getJSONObject(i).getString("ruc"),
+                response.getJSONObject(i).getString("nombre"),
+                response.getJSONObject(i).getString("tipoEmpresa"),
+                response.getJSONObject(i).getString("razonSocial"),
+                response.getJSONObject(i).getString("departamento"),
+                response.getJSONObject(i).getString("ciudad"),
+                response.getJSONObject(i).getString("direccion"),
+                response.getJSONObject(i).getString("sitioWeb"),
+                false);
+
+        return modeloEmpresa;
+    }
+
+    public void cargarConsultarCurriculum() {
+
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
+
+                    ArrayList<Estudiante> usuarioArrayList = modeloEstudiante.read(MainActivity.this);
+
+                    if (usuarioArrayList == null) {
+                        for (int i = usuarioArrayList.size(); i < response.length(); i++) {
+                            modeloEstudiante = getModeloEstudiante(response, i);
+                            modeloEstudiante.create(MainActivity.this);
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOS", Toast.LENGTH_SHORT).show();
+                    } else {
+                        for (int i = usuarioArrayList.size(); i < response.length(); i++) {
+                            modeloEstudiante = getModeloEstudiante(response, i);
+                            modeloEstudiante.create(MainActivity.this);
+                        }
+                        for (int i = 0; i < response.length(); i++) {
+                            modeloEstudiante = getModeloEstudiante(response, i);
+                            modeloEstudiante.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+
+    }
+
+    @NotNull
+    private ModeloEstudiante getModeloEstudiante(JSONArray response, int i) throws JSONException {
+
+        ModeloEstudiante modeloEstudiante;
+        modeloEstudiante = new ModeloEstudiante(
+                response.getJSONObject(i).getInt("id"),
+                response.getJSONObject(i).getString("cedula"),
+                response.getJSONObject(i).getString("nombres"),
+                response.getJSONObject(i).getString("apellidos"),
+                response.getJSONObject(i).getString("genero"),
+                response.getJSONObject(i).getString("fechaNacimiento"),
+                response.getJSONObject(i).getString("ciudad"),
+                response.getJSONObject(i).getString("direccion"),
+                response.getJSONObject(i).getString("estadoCivil"),
+                response.getJSONObject(i).getString("rutaImagen"),
+                response.getJSONObject(i).getString("urlImagen"),
+                false);
+
+        return modeloEstudiante;
+
+    }
+
 
 }

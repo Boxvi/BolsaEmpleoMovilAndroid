@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.employe;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,21 +9,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class InicioCV extends AppCompatActivity {
+public class InicioBuscoEmpleo extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_cv);
+        setContentView(R.layout.activity_inicio_busco_empleo);
     }
-
-    public void goInicioBuscoEmpleo(View view) {
-        Intent intent = new Intent(this, InicioBuscoEmpleo.class);
-        startActivity(intent);
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,5 +37,30 @@ public class InicioCV extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //ir Curriculum vitae
+    public void goCurriculumVitae(View view) {
+        Intent intent = new Intent(this, InicioCV.class);
+        startActivity(intent);
+
+    }
+
+    //ir Ofertas Laborales
+    public void goOfertasLaborales(View view) {
+        Intent intent = new Intent(this, OfertasLaborales.class);
+        startActivity(intent);
+
+    }
+
+    //if Ofertas aplicadas
+    public void goOfertasAplicadas(View view) {
+        Intent intent = new Intent(this, OfertasAplicadas.class);
+        startActivity(intent);
+
+    }
+
+
+
+
 
 }

@@ -80,7 +80,7 @@ public class ModeloUsuario extends Usuario implements CrudGeneric<Usuario, Integ
     @Override
     public Usuario buscarPorId(Context context, Integer integer) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String nosql = "SELECT * FROM login WHERE id = " + integer;
+        String nosql = "SELECT * FROM login WHERE id = " + integer + "like ";
 
         Cursor cursor = sqLiteOpenHelper.query(nosql);
 
@@ -99,6 +99,30 @@ public class ModeloUsuario extends Usuario implements CrudGeneric<Usuario, Integ
         sqLiteOpenHelper.close();
         return usuario;
     }
+
+
+    public Usuario buscarPorUsername(Context context, String username) {
+        sqLiteOpenHelper = new SQLiteOpenHelper(context);
+        String nosql = "SELECT * FROM login WHERE username = '" + username + "'";
+
+        Cursor cursor = sqLiteOpenHelper.query(nosql);
+
+        Usuario usuario = new Usuario();
+
+        if (cursor.moveToNext()) {
+            usuario.setId(cursor.getInt(0));
+            usuario.setUsername(cursor.getString(1));
+            usuario.setPassword(cursor.getString(2));
+            usuario.setEmail(cursor.getString(3));
+            usuario.setTelefono(cursor.getString(4));
+            usuario.setEstado(Boolean.parseBoolean(cursor.getString(5)));
+            usuario.setRol(cursor.getString(6));
+        }
+
+        sqLiteOpenHelper.close();
+        return usuario;
+    }
+
 }
 
 /*

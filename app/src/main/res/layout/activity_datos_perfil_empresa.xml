@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.InicioCV">
+        tools:context=".ui.employe.InicioCV">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_baseline_arrow_back_50"
-                android:id="@+id/ic_baseline_arrow_back_50" android:onClick="goPerfilEmpresa"/>
+                android:id="@+id/btn_regresar_pefil_empresa"/>
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -59,7 +59,17 @@
                     android:id="@+id/imgEmpresa" android:layout_weight="2"
                     app:srcCompat="@android:drawable/ic_input_get"/>
         </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="ID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/txt_id" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/view_ID"
+                    android:layout_weight="1"/>
+        </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
@@ -67,9 +77,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent" android:id="@+id/nombres_apellidos" android:layout_weight="1"/>
             <TextView
-                    android:text="nombres_empresa"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent" android:id="@+id/txt_nombres_empresa"
+                    android:layout_height="match_parent" android:id="@+id/view_nombres_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -79,9 +88,31 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/fecha_nacimiento" android:layout_weight="1"/>
             <TextView
-                    android:text="ruc_empresa"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_ruc"
+                    android:layout_height="wrap_content" android:id="@+id/view_ruc"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="CIUDAD"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/txt_ciudad" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/view_ciudad"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="DEPARTAMENTO"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/txt_departamento" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:id="@+id/view_departamento"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -92,9 +123,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/cedula_ciudadania" android:layout_weight="1"/>
             <TextView
-                    android:text="tipo_empresa"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_tipo_empresa"
+                    android:layout_height="wrap_content" android:id="@+id/view_tipo_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -104,9 +135,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/direccion" android:layout_weight="1"/>
             <TextView
-                    android:text="direccion"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_direccion" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/view_direccion" android:layout_weight="1"/>
         </TableRow>
 
 
@@ -116,27 +147,26 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/telefono" android:layout_weight="1"/>
             <TextView
-                    android:text="sector_empresarial"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_sector" android:layout_weight="1"/>
-        </TableRow>
 
-
-        <TableRow android:layout_width="match_parent" android:layout_height="38dp"/>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="ACT ECONOMICA"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
-            <TextView
-                    android:text="act_economico"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_act_economico"
+                    android:layout_height="wrap_content" android:id="@+id/view_sector_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
+        <!--
+                <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+                    <TextView
+                            android:text="ACT ECONOMICA"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
+                    <TextView
 
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:id="@+id/view_act_economico"
+                            android:layout_weight="1"/>
+                </TableRow>
+        -->
+
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="RAZON SOCIAL"
@@ -144,14 +174,13 @@
                     android:layout_height="wrap_content" android:id="@+id/experencia_laboral_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="razon_social"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_razon_social"
+                    android:layout_height="wrap_content" android:id="@+id/view_razon_social"
                     android:layout_weight="1"/>
         </TableRow>
 
 
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="CORREO"
@@ -159,14 +188,13 @@
                     android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="correo"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_correo_empresa"
+                    android:layout_height="wrap_content" android:id="@+id/view_correo_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
 
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="NUMERO"
@@ -174,9 +202,9 @@
                     android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="telefono"
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_telefono_empresa"
+                    android:layout_height="wrap_content" android:id="@+id/view_telefono_empresa"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -188,13 +216,23 @@
             android:layout_height="50dp"
             android:gravity="center"
             tools:ignore="MissingConstraints"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
         <Button
-                android:text="@string/validar"
+                android:text="ACTIVAR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button_validad"
+                android:id="@+id/btn_activar"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"/>
+        <Button
+                android:text="DESACTIVAR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:id="@+id/btn_desactivar"
                 android:layout_weight="1"/>
     </LinearLayout>
 
