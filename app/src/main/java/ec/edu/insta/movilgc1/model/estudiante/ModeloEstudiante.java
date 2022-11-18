@@ -109,4 +109,14 @@ public class ModeloEstudiante extends Estudiante implements CrudGeneric<Estudian
 
         return estudiante;
     }
+
+
+    public Estudiante buscarPorUsername(Context context, String email) {
+
+        sqLiteOpenHelper = new SQLiteOpenHelper(context);
+
+        String sql = "SELECT * FROM estudiante where ";
+        return null;
+
+    }
 }

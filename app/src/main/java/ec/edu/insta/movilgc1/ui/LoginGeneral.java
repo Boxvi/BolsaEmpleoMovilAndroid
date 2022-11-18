@@ -101,6 +101,9 @@ public class LoginGeneral extends AppCompatActivity {
 
                                 if (usuario1.isEstado() == true) {
                                     intent = new Intent(LoginGeneral.this, InicioAdminBusqueda.class);
+                                    Bundle budle= new Bundle();
+                                    budle.putString("id_usuario",usuario1.getId().toString());
+
                                     startActivity(intent);
                                     Toast.makeText(LoginGeneral.this, "Bienvenido " + usuario, Toast.LENGTH_SHORT).show();
                                 } else {

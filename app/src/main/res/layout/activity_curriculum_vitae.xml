@@ -85,7 +85,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/nombres_apellidos" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/nombres_apellidos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_nombres_apellidos"
                     android:layout_weight="1"/>
@@ -97,7 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/fecha_nacimiento" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/fecha_nacimiento"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_fecha_nacimiento"
                     android:layout_weight="1"/>
@@ -110,7 +109,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/cedula_ciudadania" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/cedula_ciudadania"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_cedula_ciudadania"
                     android:layout_weight="1"/>
@@ -122,7 +121,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/direccion" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/direccion"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/view_direccion" android:layout_weight="1"/>
         </TableRow>
@@ -134,7 +133,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/telefono" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/telefono"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_telefono" android:layout_weight="1"/>
         </TableRow>
@@ -153,7 +152,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/logros_nombres"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_logros_nombres"
                     android:layout_weight="1"/>
@@ -174,7 +173,7 @@
                     android:layout_height="wrap_content" android:id="@+id/experencia_laboral_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/experencia_laboral_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_experencia_laboral_nombre"
                     android:layout_weight="1"/>
@@ -196,7 +195,7 @@
                     android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/referencias_personales_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_referencias_personales_nombre"
                     android:layout_weight="1"/>
@@ -217,7 +216,7 @@
                     android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/capacitaciones_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_capacitaciones_nombre"
                     android:layout_weight="1"/>

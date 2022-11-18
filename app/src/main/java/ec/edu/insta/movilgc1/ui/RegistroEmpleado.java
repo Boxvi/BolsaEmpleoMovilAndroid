@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,6 +35,7 @@ public class RegistroEmpleado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_empleado);
 
+        // camposVacios();
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -44,12 +46,27 @@ public class RegistroEmpleado extends AppCompatActivity {
         btn_siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RegistroUsuario();
-                Intent intent = new Intent(RegistroEmpleado.this, RegistroPerfilEmpleado.class);
-                bundle.putString("username", editTextUsername.getText().toString());
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
+
+                if (editTextUsername.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty() || editTextTelefono.getText().toString().isEmpty() || editTextEmail.getText().toString().isEmpty()) {
+                    camposVacios();
+                    Toast.makeText(RegistroEmpleado.this, "RELLENAR TODOS LOS  CAMPOS", Toast.LENGTH_SHORT).show();
+
+
+                } else {
+                    registroUsuario(editTextUsername.getText().toString(), editTextPassword.getText().toString(),
+                            editTextEmail.getText().toString(), editTextTelefono.getText().toString(), false
+                            , "ROLE_ESTUDIANTE");
+
+
+
+                    Intent intent = new Intent(RegistroEmpleado.this, RegistroPerfilEmpleado.class);
+                    bundle.putString("username", editTextUsername.getText().toString());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    finish();
+                }
+
+
             }
         });
 
@@ -66,15 +83,8 @@ public class RegistroEmpleado extends AppCompatActivity {
 
     }
 
-
-    private void RegistroUsuario() {
-        String email = editTextEmail.getText().toString();
-        String username = editTextUsername.getText().toString();
-        String password = editTextPassword.getText().toString();
-        String confirmPassword = editTextConfirmPassword.getText().toString();
-        String telefono = editTextTelefono.getText().toString();
-
-        if (email.isEmpty()) {
+    private void camposVacios() {
+        if (editTextEmail.getText().toString().isEmpty()) {
             editTextEmail.setError("El email es requerido");
             editTextEmail.requestFocus();
             return;
@@ -83,7 +93,7 @@ public class RegistroEmpleado extends AppCompatActivity {
         ArrayList<Usuario> usuarios = modeloUsuario.read(RegistroEmpleado.this);
 
         for (Usuario usuario : usuarios) {
-            if (usuario.getEmail().equals(email)) {
+            if (usuario.getEmail().equals(editTextEmail.getText().toString())) {
                 editTextEmail.setError("El email ya existe");
                 editTextEmail.requestFocus();
                 return;
@@ -91,7 +101,7 @@ public class RegistroEmpleado extends AppCompatActivity {
         }
 
         for (Usuario usuario : usuarios) {
-            if (usuario.getUsername().equals(username)) {
+            if (usuario.getUsername().equals(editTextUsername.getText().toString())) {
                 editTextUsername.setError("El username ya existe");
                 editTextUsername.requestFocus();
                 return;
@@ -99,44 +109,38 @@ public class RegistroEmpleado extends AppCompatActivity {
         }
 
 
-        if (username.isEmpty()) {
+        if (editTextUsername.getText().toString().isEmpty()) {
             editTextUsername.setError("El nombre de usuario es requerido");
             editTextUsername.requestFocus();
             return;
         }
 
-        if (password.isEmpty()) {
+        if (editTextPassword.getText().toString().isEmpty()) {
             editTextPassword.setError("La contraseña es requerida");
             editTextPassword.requestFocus();
             return;
         }
 
-        if (confirmPassword.isEmpty()) {
+        if (editTextConfirmPassword.getText().toString().isEmpty()) {
             editTextConfirmPassword.setError("La confirmación de la contraseña es requerida");
             editTextConfirmPassword.requestFocus();
             return;
         }
 
-        if (telefono.isEmpty()) {
+        if (editTextTelefono.getText().toString().isEmpty()) {
             editTextTelefono.setError("El teléfono es requerido");
             editTextTelefono.requestFocus();
             return;
         }
 
-        if (!password.equals(confirmPassword)) {
+        if (!editTextPassword.getText().toString().equals(editTextConfirmPassword.getText().toString())) {
             editTextConfirmPassword.setError("Las contraseñas no coinciden");
             editTextConfirmPassword.requestFocus();
             return;
         }
-
-        Usuario usuario = new Usuario(null, username, password, email, telefono, false, null, "ROLE_ESTUDIANTE");
-
-        registroUsuario(usuario);
-
-        System.out.println("Email: " + email + " Username: " + username + " Password: " + password + " ConfirmPassword: " + confirmPassword + " Telefono: " + telefono);
     }
 
-    private void registroUsuario(Usuario usuario) {
+    private void registroUsuario(String username, String password, String email, String telefono, boolean enabled, String role) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/auth/signup";
@@ -144,17 +148,17 @@ public class RegistroEmpleado extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("username", usuario.getUsername());
-            jsonObject.put("password", usuario.getPassword());
-            jsonObject.put("email", usuario.getEmail());
-            jsonObject.put("telefono", usuario.getTelefono());
-            jsonObject.put("estado", usuario.isEstado());
-            jsonObject.put("rol", usuario.getRol());
+            jsonObject.put("username", username);
+            jsonObject.put("password", password);
+            jsonObject.put("email", email);
+            jsonObject.put("telefono", telefono);
+            jsonObject.put("estado", enabled);
+            jsonObject.put("rol", role);
+            System.out.println("JSON: " + jsonObject);
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, response -> {
                 try {
                     System.out.println("Response: " + response.getString("message"));
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();

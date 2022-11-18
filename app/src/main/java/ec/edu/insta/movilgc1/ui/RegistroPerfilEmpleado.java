@@ -29,7 +29,7 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
 
     private Button btn_registrare;
 
-    private     ImageButton btn_regresar_login;
+    private ImageButton btn_regresar_login;
 
     ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
 
@@ -68,11 +68,26 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
         btn_registrare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registrarPerfilEmpleado();
+
+                if (editTextCedula.getText().toString().isEmpty() || editTextNombres.getText().toString().isEmpty()
+                        || editTextApellidos.getText().toString().isEmpty() || editTextDate.getText().toString().isEmpty()
+                        || editTextDireccion.getText().toString().isEmpty() || spinnerGenero.getSelectedItem().toString().isEmpty()
+                        || spinnerCiudad.getSelectedItem().toString().isEmpty()
+                        || spinerEstadoCivil.getSelectedItem().toString().isEmpty() || view_username_r.getText().toString().isEmpty()) {
+                    camposVacios();
+                    Toast.makeText(RegistroPerfilEmpleado.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    registroEstudiante(view_username_r.getText().toString(), editTextCedula.getText().toString(),
+                            editTextNombres.getText().toString(), editTextApellidos.getText().toString(), spinnerGenero.getSelectedItem().toString(),
+                            editTextDate.getText().toString(), spinnerCiudad.getSelectedItem().toString(), editTextDireccion.getText().toString(), spinerEstadoCivil.getSelectedItem().toString(), null, null);
+                }
+
+
             }
         });
 
-        btn_regresar_login= findViewById(R.id.btn_regresar_login);
+        btn_regresar_login = findViewById(R.id.btn_regresar_login);
         btn_regresar_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,21 +98,11 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
 
     }
 
-    private void registrarPerfilEmpleado() {
-        String cedula = editTextCedula.getText().toString();
-        String nombres = editTextNombres.getText().toString();
-        String apellidos = editTextApellidos.getText().toString();
-        String fechaNacimiento = editTextDate.getText().toString();
-        String direccion = editTextDireccion.getText().toString();
-        String genero = spinnerGenero.getSelectedItem().toString();
-        String ciudad = spinnerCiudad.getSelectedItem().toString();
-        String estadoCivil = spinerEstadoCivil.getSelectedItem().toString();
-        String username = view_username_r.getText().toString();
-
+    public void camposVacios() {
         ArrayList<Estudiante> estudianteArrayList = modeloEstudiante.read(RegistroPerfilEmpleado.this);
 
         for (Estudiante estudiante : estudianteArrayList) {
-            if (estudiante.getCedula().equals(cedula)) {
+            if (estudiante.getCedula().equals(editTextCedula.getText().toString())) {
                 Toast.makeText(this, "Ya existe un estudiante con esa cédula", Toast.LENGTH_SHORT).show();
                 editTextCedula.setError("Ya existe un estudiante con esa cédula");
                 editTextCedula.requestFocus();
@@ -107,57 +112,45 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
         }
 
 
-        if (cedula.isEmpty()) {
+        if (editTextCedula.getText().toString().isEmpty()) {
             editTextCedula.setError("Ingrese su cedula");
             editTextCedula.requestFocus();
             return;
         }
-        if (nombres.isEmpty()) {
+        if (editTextNombres.getText().toString().isEmpty()) {
             editTextNombres.setError("Ingrese sus nombres");
             editTextNombres.requestFocus();
             return;
         }
-        if (apellidos.isEmpty()) {
+        if (editTextApellidos.getText().toString().isEmpty()) {
             editTextApellidos.setError("Ingrese sus apellidos");
             editTextApellidos.requestFocus();
             return;
         }
-        if (fechaNacimiento.isEmpty()) {
+        if (editTextDate.getText().toString().isEmpty()) {
             editTextDate.setError("Ingrese su fecha de nacimiento");
             editTextDate.requestFocus();
             return;
         }
-        if (direccion.isEmpty()) {
+        if (editTextDireccion.getText().toString().isEmpty()) {
             editTextDireccion.setError("Ingrese su direccion");
             editTextDireccion.requestFocus();
             return;
         }
 
-        if (genero.isEmpty()) {
+        if (spinnerGenero.getSelectedItem().toString().isEmpty()) {
             Toast.makeText(this, "Seleccione su genero", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (ciudad.isEmpty()) {
+        if (spinnerCiudad.getSelectedItem().toString().isEmpty()) {
             Toast.makeText(this, "Seleccione su ciudad", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (estadoCivil.isEmpty()) {
+        if (spinerEstadoCivil.getSelectedItem().toString().isEmpty()) {
             Toast.makeText(this, "Seleccione su estado civil", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        if (cedula.isEmpty() || nombres.isEmpty() || apellidos.isEmpty() || fechaNacimiento.isEmpty() || direccion.isEmpty() || genero.isEmpty() || ciudad.isEmpty() || estadoCivil.isEmpty() || username.isEmpty()) {
-            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        System.out.println("cedula: " + cedula + " nombres: " + nombres + " apellidos: " + apellidos + " fechaNacimiento: " + fechaNacimiento + " direccion: " + direccion + " genero: " + genero + " ciudad: " + ciudad + " estadoCivil: " + estadoCivil + " username: " + username);
-
-        Estudiante estudiante = new Estudiante(0, cedula, nombres, apellidos, genero, fechaNacimiento, ciudad, direccion, estadoCivil, null, null, false);
-
-        registroEstudiante(username, estudiante);
     }
-
 
     private ArrayAdapter<CharSequence> dameCiudades() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ciudades";
@@ -187,7 +180,9 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
         return adapter;
     }
 
-    private void registroEstudiante(String username, Estudiante estudiante) {
+    private void registroEstudiante(String username, String cedula, String nombres, String apellidos, String genero,
+                                    String fechaNacimiento, String ciudad, String direccion, String estadoCivil,
+                                    String rutaImagen, String urlImagen) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
@@ -196,27 +191,28 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
 
         try {
 
-            switch(estudiante.getGenero()) {
+            jsonBody.put("id", "0");
+            jsonBody.put("username", username);
+            jsonBody.put("cedula", cedula);
+            jsonBody.put("nombres", nombres);
+            jsonBody.put("apellidos", apellidos);
+
+            switch (genero) {
                 case "Masculino":
-                    estudiante.setGenero("M");
+                    jsonBody.put("genero", "M");
                     break;
                 case "Femenino":
-                    estudiante.setGenero("F");
+                    jsonBody.put("genero", "F");
                     break;
             }
 
 
-            jsonBody.put("username", username);
-            jsonBody.put("cedula", estudiante.getCedula());
-            jsonBody.put("nombres", estudiante.getNombres());
-            jsonBody.put("apellidos", estudiante.getApellidos());
-            jsonBody.put("genero", estudiante.getGenero());
-            jsonBody.put("fechaNacimiento", estudiante.getFechaNacimiento());
-            jsonBody.put("direccion", estudiante.getDireccion());
-            jsonBody.put("ciudad", estudiante.getCiudad());
-            jsonBody.put("estadoCivil", estudiante.getEstadoCivil());
-            jsonBody.put("rutaImagen", estudiante.getRutaImagen());
-            jsonBody.put("urlImagen", estudiante.getUrlImagen());
+            jsonBody.put("fechaNacimiento", fechaNacimiento);
+            jsonBody.put("ciudad", ciudad);
+            jsonBody.put("direccion", direccion);
+            jsonBody.put("estadoCivil", estadoCivil);
+            jsonBody.put("rutaImagen", rutaImagen);
+            jsonBody.put("urlImagen", urlImagen);
 
             System.out.println(jsonBody);
 

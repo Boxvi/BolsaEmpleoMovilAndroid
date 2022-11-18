@@ -124,31 +124,3 @@ public class ModeloUsuario extends Usuario implements CrudGeneric<Usuario, Integ
     }
 
 }
-
-/*
-public boolean agregarUsuario(String username, String cedula, String nombres, String apellidos, String genero, String fechaNacimiento, String ciudad, String direccion, String estadoCivil) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            ");
-            sqLiteDatabase.close();
-            return true;
-        }
-        return false;
-    }
-
-    public void editarUsuario(String nombres, String apellidos, String genero, String fechaNacimiento, String ciudad, String direccion, String estadoCivil, String username) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            sqLiteDatabase.execSQL("UPDATE usuarios SET nombres = '" + nombres + "', apellidos = '" + apellidos + "', genero = '" + genero + "', fechaNacimiento = '" + fechaNacimiento + "', ciudad = '" + ciudad + "', direccion = '" + direccion + "', estadoCivil = '" + estadoCivil + "' WHERE username = '" + username + "'");
-            sqLiteDatabase.close();
-        }
-    }
-
-    public void agregarLogin(String username, String password, String email, String telefono, String estado, String fechaCreacion, String rol) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            INSERT INTO login (username, pasword, email, telefono, estado, fechaCreacion, rol) VALUES ('" + username + "', '" + password + "', '" + email + "', '" + telefono + "', '" + estado + "', '" + fechaCreacion + "', '" + rol + "')");
-            sqLiteDatabase.close();
-        }
-    }
- */
