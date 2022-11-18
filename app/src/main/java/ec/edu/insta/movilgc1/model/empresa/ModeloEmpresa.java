@@ -22,7 +22,10 @@ public class ModeloEmpresa extends Empresa implements CrudGeneric<Empresa, Integ
     @Override
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String noSql = "INSERT INTO empresa ( sectorEmpresarial, ruc, nombre, tipoEmpresa, razonSocial, departamento, ciudad, direccion, sitioWeb, estado) VALUES ( '" + getSectorEmpresarial() + "', '" + getRuc() + "', '" + getNombre() + "', '" + getTipoEmpresa() + "', '" + getRazonSocial() + "', '" + getDepartamento() + "', '" + getCiudad() + "', '" + getDireccion() + "', '" + getSitioWeb() + "', '" + isEstado() + "');";
+        String noSql = "INSERT INTO empresa ( sectorEmpresarial, ruc, nombre, tipoEmpresa, razonSocial, departamento, ciudad, direccion, sitioWeb, estado) VALUES ( '"
+                + getSectorEmpresarial() + "', '" + getRuc() + "', '" + getNombre() + "', '" + getTipoEmpresa() + "', '"
+                + getRazonSocial() + "', '" + getDepartamento() + "', '" + getCiudad() + "', '" + getDireccion() + "', '"
+                + getSitioWeb() + "', '" + isEstado() + "');";
         sqLiteOpenHelper.noQuery(noSql);
         sqLiteOpenHelper.close();
 
@@ -49,6 +52,7 @@ public class ModeloEmpresa extends Empresa implements CrudGeneric<Empresa, Integ
             empresa.setCiudad(cursor.getString(7));
             empresa.setDireccion(cursor.getString(8));
             empresa.setSitioWeb(cursor.getString(9));
+            empresa.setEstado(Boolean.parseBoolean(cursor.getString(10)));
 
             empresaArrayList.add(empresa);
 
@@ -81,16 +85,16 @@ public class ModeloEmpresa extends Empresa implements CrudGeneric<Empresa, Integ
 
         if (cursor.moveToNext()) {
             empresa.setId(cursor.getInt(0));
-            empresa.setSectorEmpresarial(cursor.getString(2));
-            empresa.setRuc(cursor.getString(3));
-            empresa.setNombre(cursor.getString(4));
-            empresa.setTipoEmpresa(cursor.getString(5));
-            empresa.setRazonSocial(cursor.getString(6));
-            empresa.setDepartamento(cursor.getString(7));
-            empresa.setCiudad(cursor.getString(8));
-            empresa.setDireccion(cursor.getString(9));
-            empresa.setSitioWeb(cursor.getString(10));
-            empresa.setEstado(cursor.getInt(11) == 1);
+            empresa.setSectorEmpresarial(cursor.getString(1));
+            empresa.setRuc(cursor.getString(2));
+            empresa.setNombre(cursor.getString(3));
+            empresa.setTipoEmpresa(cursor.getString(4));
+            empresa.setRazonSocial(cursor.getString(5));
+            empresa.setDepartamento(cursor.getString(6));
+            empresa.setCiudad(cursor.getString(7));
+            empresa.setDireccion(cursor.getString(8));
+            empresa.setSitioWeb(cursor.getString(9));
+            empresa.setEstado(Boolean.parseBoolean(cursor.getString(10)));
         }
 
         sqLiteOpenHelper.close();

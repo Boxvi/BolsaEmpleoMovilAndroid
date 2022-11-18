@@ -63,7 +63,6 @@
     <string name="ingresar">INGRESAR</string>
     <string name="nombre_empresa">Nombre Empresa</string>
     <string name="tipo_empresa">Tipo Empresa</string>
-    <string name="ciudad">Ciudad</string>
     <string name="mas_detalles">Mas Detalles</string>
     <string name="title_activity_curriculum_vitae">CurriculumVitae</string>
     <string name="prompt_email">Email</string>
@@ -89,6 +88,10 @@
 
     <string name="comboGeneros">GENERO</string>
     <string name="ciudades">Ciudades</string>
+    <string name="estado_civil">Estado Civil</string>
+    <string name="rol">Rol</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="username">Username</string>
 
     <string-array name="generos">
         <item>Masculino</item>

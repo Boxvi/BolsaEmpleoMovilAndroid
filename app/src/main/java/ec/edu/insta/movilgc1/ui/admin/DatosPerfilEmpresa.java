@@ -114,44 +114,36 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    System.out.println("RESPUESTA: " + response);
                     view_nombres_empresa = findViewById(R.id.view_nombres_empresa);
-                    view_nombres_empresa.setText(response.getString("nombre"));
-
                     view_ruc = findViewById(R.id.view_ruc);
-                    view_ruc.setText(response.getString("ruc"));
-
                     view_tipo_empresa = findViewById(R.id.view_tipo_empresa);
-                    view_tipo_empresa.setText(response.getString("tipoEmpresa"));
-
                     view_direccion = findViewById(R.id.view_direccion);
-                    view_direccion.setText(response.getString("direccion"));
-
                     view_sector_empresa = findViewById(R.id.view_sector_empresa);
-                    view_sector_empresa.setText(response.getJSONObject("sectorEmpresarial").getString("nombre"));
-
                     view_ciudad = findViewById(R.id.view_ciudad);
+                    view_correo_empresa = findViewById(R.id.view_correo_empresa);
+                    view_telefono_empresa = findViewById(R.id.view_telefono_empresa);
+                    view_departamento = findViewById(R.id.view_departamento);
+                    view_razon_social = findViewById(R.id.view_razon_social);
+
+
+                    view_nombres_empresa.setText(response.getString("nombre"));
+                    view_ruc.setText(response.getString("ruc"));
+                    view_tipo_empresa.setText(response.getString("tipoEmpresa"));
+                    view_direccion.setText(response.getString("direccion"));
+                    view_sector_empresa.setText(response.getJSONObject("sectorEmpresarial").getString("nombre"));
                     view_ciudad.setText(
                             response.getJSONObject("ciudad").getString("nombre") + ", Provincia " +
                                     response.getJSONObject("ciudad").getJSONObject("provincia").getString("nombre"));
-
-
-                    view_razon_social = findViewById(R.id.view_razon_social);
                     view_razon_social.setText(response.getString("razonSocial"));
-
-                    view_correo_empresa = findViewById(R.id.view_correo_empresa);
                     view_correo_empresa.setText(response.getString("sitioWeb"));
-
-                    view_telefono_empresa = findViewById(R.id.view_telefono_empresa);
                     view_telefono_empresa.setText(response.getJSONObject("usuario").getString("telefono"));
-
-                    view_departamento = findViewById(R.id.view_departamento);
                     view_departamento.setText(response.getString("departamento"));
+
+
 
                     btn_activar = findViewById(R.id.btn_activar);
                     btn_desactivar = findViewById(R.id.btn_desactivar);
 
-                    System.out.println(response.getJSONObject("usuario").getBoolean("estado"));
 
                     if (response.getJSONObject("usuario").getBoolean("estado") == true) {
                         btn_activar.setVisibility(View.GONE);
@@ -187,16 +179,13 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    System.out.println("RESPUESTA: " + response);
-
                     String URLPUT = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios/" + response.getJSONObject("usuario").getInt("id");
-
 
                     JSONObject jsonObject = new JSONObject();
 
                     jsonObject.put("username", response.getJSONObject("usuario").getString("username"));
 
-                    jsonObject.put("password", "12345678");
+                    jsonObject.put("password", "1234");
 
                     //modificar estado pero no contrasena
                     //jsonObject.put("password", response.getJSONObject("usuario").getString("password"));
@@ -207,12 +196,10 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     jsonObject.put("estado", estado);
                     jsonObject.put("rol", response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));
 
-                    System.out.println("JSON: " + jsonObject);
                     JsonObjectRequest jsonObjectRequest1 = new JsonObjectRequest(Request.Method.PUT, URLPUT, jsonObject, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                System.out.println("RESPUESTA: " + response);
                                 Toast.makeText(DatosPerfilEmpresa.this, "Estado Modificado", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
@@ -225,7 +212,6 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                         }
                     });
                     requestQueue.add(jsonObjectRequest1);
-                    System.out.println(response.getJSONObject("usuario").getString("estado"));
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -242,14 +228,3 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
 
     }
 }
-
-/*
-
-                    ModeloEmpresa modeloEmpresa = new ModeloEmpresa();
-
-                    modeloEmpresa.setId(response.getInt("id"));
-                    modeloEmpresa.setNombre(response.getString(""));
-
-                    modeloEmpresa.setEstado(response.getJSONObject("usuario").getBoolean("estado"
-// modeloEmpresa.create(InicioAdminBusqueda.this);
- */

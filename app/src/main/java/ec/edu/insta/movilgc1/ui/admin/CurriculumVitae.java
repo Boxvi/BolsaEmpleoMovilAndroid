@@ -19,15 +19,17 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.ui.MainActivity;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CurriculumVitae extends AppCompatActivity {
 
-    private TextView view_cv_ID;
+    private TextView view_cv_ID, view_cv_nombres_apellidos, view_cv_fecha_nacimiento, view_cv_cedula_ciudadanina, view_cv_username,
+            view_cv_direccion, view_cv_correo, view_cv_telefono, view_cv_estado_civil, view_cv_rol, view_cv_genero, view_cv_ciudad;
+
+
     private ImageView btn_regresar_pefil_empresa_cv;
 
-    private TextView txt_nombres_apellidos, txt_fecha_nacimiento, txt_cedula_ciudadanina, view_direccion, txt_telefono,
-            txt_logro_nombre, txt_experiencia_laboral_nombre, txt_referencias_personales_nombre;
 
     private Button btn_activar, btn_desactivar;
 
@@ -74,7 +76,7 @@ public class CurriculumVitae extends AppCompatActivity {
 
     private void curriculimVitae(int parseInt) {
 
-        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/1" + parseInt;
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + parseInt;
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
@@ -82,24 +84,40 @@ public class CurriculumVitae extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    txt_nombres_apellidos = findViewById(R.id.txt_nombres_apellidos);
-                    txt_fecha_nacimiento = findViewById(R.id.txt_fecha_nacimiento);
-                    txt_cedula_ciudadanina = findViewById(R.id.txt_cedula_ciudadania);
-                    view_direccion = findViewById(R.id.view_direccion);
-                    txt_telefono = findViewById(R.id.txt_telefono);
-                    txt_logro_nombre = findViewById(R.id.txt_logros_nombres);
-                    txt_experiencia_laboral_nombre = findViewById(R.id.txt_experencia_laboral_nombre);
-                    txt_referencias_personales_nombre = findViewById(R.id.txt_referencias_personales_nombre);
+                    view_cv_nombres_apellidos = findViewById(R.id.view_cv_nombres_apellidos);
+                    view_cv_fecha_nacimiento = findViewById(R.id.view_cv_fecha_nacimiento);
+                    view_cv_cedula_ciudadanina = findViewById(R.id.view_cv_cedula_ciudadania);
+                    view_cv_direccion = findViewById(R.id.view_cv_direccion);
+                    view_cv_telefono = findViewById(R.id.view_cv_telefono);
+                    view_cv_estado_civil = findViewById(R.id.view_cv_estado_civil);
+                    view_cv_rol = findViewById(R.id.view_cv_rol);
+                    view_cv_genero = findViewById(R.id.view_cv_genero);
+                    view_cv_ciudad = findViewById(R.id.view_cv_ciudad);
+                    view_cv_username = findViewById(R.id.view_cv_username);
+                    view_cv_correo = findViewById(R.id.view_cv_correo);
 
-                    txt_nombres_apellidos.setText(response.getString("nombres") + " " + response.getString("apellidos"));
-                    txt_fecha_nacimiento.setText(response.getString("fechaNacimiento"));
-                    txt_cedula_ciudadanina.setText(response.getString("cedula"));
-                    view_direccion.setText(response.getString("direccion"));
-                    txt_telefono.setText(response.getString("telefono"));
-                    //txt_logro_nombre.setText(response.getString("logros"));
+                    view_cv_nombres_apellidos.setText(response.getString("nombres") + " " + response.getString("apellidos"));
+                    view_cv_fecha_nacimiento.setText(response.get("fechaNacimiento").toString());
+                    view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
+                    view_cv_cedula_ciudadanina.setText(response.getString("cedula"));
+                    view_cv_direccion.setText(response.getString("direccion"));
+                    view_cv_telefono.setText(response.getJSONObject("usuario").getString("telefono"));
+                    view_cv_estado_civil.setText(response.getString("estadoCivil"));
+                    view_cv_rol.setText(response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));
+                    view_cv_genero.setText(response.getString("genero"));
+                    view_cv_ciudad.setText(response.getJSONObject("ciudad").getString("nombre"));
+                    view_cv_correo.setText(response.getJSONObject("usuario").getString("email"));
 
-                    //txt_experiencia_laboral_nombre.setText(response.getString("experienciaLaboral"));
-                    //txt_referencias_personales_nombre.setText(response.getString("referenciasPersonales"));
+                    btn_activar = findViewById(R.id.btn_activar);
+                    btn_desactivar = findViewById(R.id.btn_desactivar);
+
+                    if (response.getJSONObject("usuario").getBoolean("estado") == true) {
+                        btn_activar.setVisibility(View.GONE);
+                        btn_desactivar.setVisibility(View.VISIBLE);
+                    } else {
+                        btn_activar.setVisibility(View.VISIBLE);
+                        btn_desactivar.setVisibility(View.GONE);
+                    }
 
                 } catch (Exception e) {
                     Toast.makeText(CurriculumVitae.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -113,10 +131,55 @@ public class CurriculumVitae extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
 
-
     }
 
-    private void modificarEstado(int parseInt, boolean b) {
+    private void modificarEstado(int parseInt, boolean estado) {
+
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + parseInt;
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    String URLPUT = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios/" + response.getJSONObject("usuario").getInt("id");
+
+                    JSONObject jsonObject = new JSONObject();
+
+                    jsonObject.put("username", response.getJSONObject("usuario").getString("username"));
+                    jsonObject.put("password", "1234");
+                    jsonObject.put("email", response.getJSONObject("usuario").getString("email"));
+                    jsonObject.put("telefono", response.getJSONObject("usuario").getString("telefono"));
+                    jsonObject.put("estado", estado);
+                    jsonObject.put("rol", response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));
+
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, URLPUT, jsonObject, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Toast.makeText(CurriculumVitae.this, "Estado modificado", Toast.LENGTH_SHORT).show();
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(CurriculumVitae.this, "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    requestQueue.add(jsonObjectRequest);
+
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(CurriculumVitae.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+
     }
 
     private void extracted() {

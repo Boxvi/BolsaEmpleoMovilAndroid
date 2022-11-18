@@ -11,6 +11,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.model.empresa.Empresa;
@@ -22,6 +23,7 @@ import ec.edu.insta.movilgc1.model.usuario.Usuario;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -37,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cargarDatosUsuario();
+
         cargarDatosPerfilEmpresa();
         cargarConsultarCurriculum();
+        //updateEstudiantes();
 
         btn_busco_empleo = findViewById(R.id.btn_busco_empleo);
         btn_eres_admin = findViewById(R.id.btn_eres_admin);
@@ -264,5 +268,75 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+/*
+    public void updateEstudiantes() {
+
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+
+                for (int i = 0; i < response.length(); i++) {
+
+                    try {
+                        String urlUP = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + response.getJSONObject(i).getInt("id");
+
+                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, urlUP, null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                try {
+                                    ModeloEstudiante modeloEstudiante = new ModeloEstudiante(
+                                            response.getInt("id"),
+                                            response.getString("cedula"),
+                                            response.getString("nombres"),
+                                            response.getString("apellidos"),
+                                            response.getString("genero"),
+                                            response.getString("fechaNacimiento"),
+                                            response.getString("ciudad"),
+                                            response.getString("direccion"),
+                                            response.getString("estadoCivil"),
+                                            response.getString("rutaImagen"),
+                                            response.getString("urlImagen"),
+                                            response.getJSONObject("usuario").getBoolean("estado")
+                                    );
+
+                                    modeloEstudiante.update(MainActivity.this, response.getInt("id"));
+                                } catch (JSONException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                                Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOS", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(MainActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+
+        //http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/1
+
+    }*/
 
 }
