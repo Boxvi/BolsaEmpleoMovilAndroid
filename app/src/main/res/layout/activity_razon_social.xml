@@ -47,7 +47,7 @@
             android:orientation="horizontal"
             tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout9">
         <EditText
                 android:hint="INGRESE SU BUSQUEDA"
                 android:layout_width="300dp"
@@ -56,7 +56,13 @@
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="391dp"
-            android:layout_height="560dp" tools:layout_editor_absoluteY="96dp" tools:layout_editor_absoluteX="1dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:id="@+id/recycler_view_razon_social"
+
+            tools:layout_editor_absoluteX="1dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout9"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

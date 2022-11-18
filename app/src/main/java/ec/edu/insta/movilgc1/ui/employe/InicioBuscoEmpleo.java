@@ -14,8 +14,12 @@ import ec.edu.insta.movilgc1.ui.MainActivity;
 
 public class InicioBuscoEmpleo extends AppCompatActivity {
 
+
     private TextView view_nombre_estudiante, view_id_estudiante;
 
+
+
+   // private String ID_ESTUDIANTE =
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +27,11 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_busco_empleo);
 
         view_id_estudiante = findViewById(R.id.view_id_estudiante);
+
         Bundle bundle = getIntent().getExtras();
         view_id_estudiante.setText(bundle.getString("id_estudiante"));
 
-       /// Bundle bundle1 = getIntent().getExtras();
-
         view_nombre_estudiante = findViewById(R.id.view_nombre_estudiante);
-        view_nombre_estudiante.setText(bundle.getString("token"));
-
 
     }
 
@@ -55,6 +56,9 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     //ir Curriculum vitae
     public void goCurriculumVitae(View view) {
         Intent intent = new Intent(this, InicioCV.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }

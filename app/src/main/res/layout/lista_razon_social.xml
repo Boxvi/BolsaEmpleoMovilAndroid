@@ -4,14 +4,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_margin="20dp">
 
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="5dp">
+            android:layout_margin="15dp">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,11 +21,43 @@
                     android:layout_height="wrap_content"
                     android:text="@string/id"/>
             <TextView
-                    android:id="@+id/txt_id"
+                    android:id="@+id/view_rs_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+                    />
         </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empresa"/>
+            <TextView
+                    android:id="@+id/view_rs_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
+        </LinearLayout>
+
+        <!--
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/razon_social"/>
+            <TextView
+                    android:id="@+id/view_rs_razon_social"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
+        </LinearLayout>
+-->
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -36,10 +68,10 @@
                     android:layout_height="wrap_content"
                     android:text="@string/salario"/>
             <TextView
-                    android:id="@+id/txt_salario_ol"
+                    android:id="@+id/view_rs_salario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+                    />
         </LinearLayout>
         <LinearLayout
                 android:layout_width="match_parent"
@@ -50,11 +82,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/cargo"/>
             <TextView
-                    android:id="@+id/txt_cargo"
+                    android:id="@+id/view_rs_cargo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+                   />
         </LinearLayout>
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,13 +95,14 @@
             <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/empresa"/>
+                    android:text="@string/ubicacion"/>
             <TextView
-                    android:id="@+id/txt_empresa_ol"
+                    android:id="@+id/view_rs_ubicacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+            />
         </LinearLayout>
+
 
 
         <LinearLayout

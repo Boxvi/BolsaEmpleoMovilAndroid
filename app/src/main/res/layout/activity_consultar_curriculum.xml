@@ -56,12 +56,13 @@
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="391dp"
-            android:layout_height="560dp"
-            tools:ignore="MissingConstraints" android:id="@+id/recycler_view_consultar_curriculum"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="100dp"
+            android:id="@+id/recycler_view_consultar_curriculum"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/linearLayout8"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

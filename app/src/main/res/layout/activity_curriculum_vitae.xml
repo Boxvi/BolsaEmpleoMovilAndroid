@@ -90,14 +90,6 @@
                     android:layout_weight="1"/>
         </TableRow>
 
-
-
-
-        <!--
-        usuario
-        telefono
-        correo genero fecha nacimiento ciudad, provienica, direccion, estadoCivil-->
-
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="@string/nombres_apellidos"

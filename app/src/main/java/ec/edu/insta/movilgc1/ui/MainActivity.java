@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("estadoCivil"),
                 response.getJSONObject(i).getString("rutaImagen"),
                 response.getJSONObject(i).getString("urlImagen"),
-                false);
+                true);
 
         return modeloEstudiante;
 

@@ -116,12 +116,13 @@ public class LoginGeneral extends AppCompatActivity {
 
                             case "ROLE_ESTUDIANTE":
                                 if (usuario1.isEstado() == true) {
-                                    Intent intent2 = new Intent(LoginGeneral.this, InicioBuscoEmpleo.class);
-                                    Bundle budle = new Bundle();
-                                    budle.putString("id_estudiante", usuario1.getId().toString());
-                                    budle.putString("token",response.getJSONArray("authorities").getJSONObject(0).getString("authority") );
 
-                                    intent2.putExtras(budle);
+                                    Intent intent2 = new Intent(LoginGeneral.this, InicioBuscoEmpleo.class);
+                                    Bundle bundle = new Bundle();
+
+                                    bundle.putString("id_estudiante", usuario1.getId().toString());
+                                    intent2.putExtras(bundle);
+
                                     startActivity(intent2);
 
                                     finish();
