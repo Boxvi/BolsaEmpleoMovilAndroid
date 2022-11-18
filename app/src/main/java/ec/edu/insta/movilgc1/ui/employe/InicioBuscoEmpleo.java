@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +14,24 @@ import ec.edu.insta.movilgc1.ui.MainActivity;
 
 public class InicioBuscoEmpleo extends AppCompatActivity {
 
+    private TextView view_nombre_estudiante, view_id_estudiante;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_busco_empleo);
+
+        view_id_estudiante = findViewById(R.id.view_id_estudiante);
+        Bundle bundle = getIntent().getExtras();
+        view_id_estudiante.setText(bundle.getString("id_estudiante"));
+
+       /// Bundle bundle1 = getIntent().getExtras();
+
+        view_nombre_estudiante = findViewById(R.id.view_nombre_estudiante);
+        view_nombre_estudiante.setText(bundle.getString("token"));
+
+
     }
 
     @Override

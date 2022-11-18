@@ -101,9 +101,11 @@ public class LoginGeneral extends AppCompatActivity {
 
                                 if (usuario1.isEstado() == true) {
                                     intent = new Intent(LoginGeneral.this, InicioAdminBusqueda.class);
-                                    Bundle budle= new Bundle();
-                                    budle.putString("id_usuario",usuario1.getId().toString());
+                                    Bundle budle = new Bundle();
+                                    budle.putString("id_usuario", usuario1.getId().toString());
 
+                                    //Bundle budle1 = new Bundle();
+                                    intent.putExtras(budle);
                                     startActivity(intent);
                                     Toast.makeText(LoginGeneral.this, "Bienvenido " + usuario, Toast.LENGTH_SHORT).show();
                                 } else {
@@ -115,7 +117,13 @@ public class LoginGeneral extends AppCompatActivity {
                             case "ROLE_ESTUDIANTE":
                                 if (usuario1.isEstado() == true) {
                                     Intent intent2 = new Intent(LoginGeneral.this, InicioBuscoEmpleo.class);
+                                    Bundle budle = new Bundle();
+                                    budle.putString("id_estudiante", usuario1.getId().toString());
+                                    budle.putString("token",response.getJSONArray("authorities").getJSONObject(0).getString("authority") );
+
+                                    intent2.putExtras(budle);
                                     startActivity(intent2);
+
                                     finish();
                                     Toast.makeText(LoginGeneral.this, "Bienvenido " + usuario, Toast.LENGTH_SHORT).show();
                                 } else {
