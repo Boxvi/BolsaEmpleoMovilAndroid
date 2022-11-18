@@ -80,7 +80,7 @@ public class ModeloUsuario extends Usuario implements CrudGeneric<Usuario, Integ
     @Override
     public Usuario buscarPorId(Context context, Integer integer) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String nosql = "SELECT * FROM login WHERE id = " + integer;
+        String nosql = "SELECT * FROM login WHERE id = " + integer + "like ";
 
         Cursor cursor = sqLiteOpenHelper.query(nosql);
 
@@ -99,32 +99,28 @@ public class ModeloUsuario extends Usuario implements CrudGeneric<Usuario, Integ
         sqLiteOpenHelper.close();
         return usuario;
     }
+
+
+    public Usuario buscarPorUsername(Context context, String username) {
+        sqLiteOpenHelper = new SQLiteOpenHelper(context);
+        String nosql = "SELECT * FROM login WHERE username = '" + username + "'";
+
+        Cursor cursor = sqLiteOpenHelper.query(nosql);
+
+        Usuario usuario = new Usuario();
+
+        if (cursor.moveToNext()) {
+            usuario.setId(cursor.getInt(0));
+            usuario.setUsername(cursor.getString(1));
+            usuario.setPassword(cursor.getString(2));
+            usuario.setEmail(cursor.getString(3));
+            usuario.setTelefono(cursor.getString(4));
+            usuario.setEstado(Boolean.parseBoolean(cursor.getString(5)));
+            usuario.setRol(cursor.getString(6));
+        }
+
+        sqLiteOpenHelper.close();
+        return usuario;
+    }
+
 }
-
-/*
-public boolean agregarUsuario(String username, String cedula, String nombres, String apellidos, String genero, String fechaNacimiento, String ciudad, String direccion, String estadoCivil) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            ");
-            sqLiteDatabase.close();
-            return true;
-        }
-        return false;
-    }
-
-    public void editarUsuario(String nombres, String apellidos, String genero, String fechaNacimiento, String ciudad, String direccion, String estadoCivil, String username) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            sqLiteDatabase.execSQL("UPDATE usuarios SET nombres = '" + nombres + "', apellidos = '" + apellidos + "', genero = '" + genero + "', fechaNacimiento = '" + fechaNacimiento + "', ciudad = '" + ciudad + "', direccion = '" + direccion + "', estadoCivil = '" + estadoCivil + "' WHERE username = '" + username + "'");
-            sqLiteDatabase.close();
-        }
-    }
-
-    public void agregarLogin(String username, String password, String email, String telefono, String estado, String fechaCreacion, String rol) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        if (sqLiteDatabase != null) {
-            INSERT INTO login (username, pasword, email, telefono, estado, fechaCreacion, rol) VALUES ('" + username + "', '" + password + "', '" + email + "', '" + telefono + "', '" + estado + "', '" + fechaCreacion + "', '" + rol + "')");
-            sqLiteDatabase.close();
-        }
-    }
- */

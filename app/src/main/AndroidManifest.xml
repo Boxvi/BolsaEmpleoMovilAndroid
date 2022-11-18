@@ -13,38 +13,46 @@
             android:theme="@style/Theme.MOVILGC1"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".ui.RegistroPerfilEmpleado"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.RegistroEmpleado"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.admin.CurriculumVitae"
+                android:exported="true"/>
+        <activity
                 android:name=".ui.LoginGeneral"
                 android:exported="true"/>
         <activity
-                android:name=".ui.DatosPerfilEmpresa"
+                android:name=".ui.admin.DatosPerfilEmpresa"
                 android:exported="true"/>
         <activity
-                android:name=".ui.RazonSocial"
+                android:name=".ui.admin.RazonSocial"
                 android:exported="true"/>
         <activity
-                android:name=".ui.PerfilEmpresa"
+                android:name=".ui.admin.PerfilEmpresa"
                 android:exported="true"/>
         <activity
-                android:name=".ui.ConsultarCurriculum"
+                android:name=".ui.admin.ConsultarCurriculum"
                 android:exported="true"/>
         <activity
-                android:name=".ui.OfertasAplicadas"
+                android:name=".ui.employe.OfertasAplicadas"
                 android:exported="true"/>
         <activity
-                android:name=".ui.OfertasLaborales"
-                android:exported="true"/>
-
-        <activity
-                android:name=".ui.InicioAdminBusqueda"
+                android:name=".ui.employe.OfertasLaborales"
                 android:exported="true"/>
         <activity
-                android:name=".ui.InicioBuscoEmpleo"
+                android:name=".ui.admin.InicioAdminBusqueda"
                 android:exported="true"/>
         <activity
-                android:name=".ui.AdminBusqueda"
+                android:name=".ui.employe.InicioBuscoEmpleo"
                 android:exported="true"/>
         <activity
-                android:name=".ui.InicioCV"
+                android:name=".ui.admin.AdminBusqueda"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.employe.InicioCV"
                 android:exported="true"/>
         <activity
                 android:name=".ui.MainActivity"

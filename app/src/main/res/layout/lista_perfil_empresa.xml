@@ -4,27 +4,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_margin="20dp">
 
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="5dp">
+            android:layout_margin="15dp">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/id"/>
             <TextView
-                    android:id="@+id/txt_id"
+                    android:id="@+id/txt_id_empresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+            />
         </LinearLayout>
 
         <LinearLayout
@@ -32,42 +32,57 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/salario"/>
+                    android:text="@string/nombre_empresa"/>
             <TextView
-                    android:id="@+id/txt_salario_ol"
+                    android:id="@+id/txt_nombre_empresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+            />
         </LinearLayout>
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/cargo"/>
+                    android:text="@string/tipo_empresa"/>
             <TextView
-                    android:id="@+id/txt_cargo"
+                    android:id="@+id/view_tipo_empresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+            />
         </LinearLayout>
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/empresa"/>
+                    android:text="Departamento"/>
             <TextView
-                    android:id="@+id/txt_empresa_ol"
+                    android:id="@+id/txt_departamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asterico"/>
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ciudad"/>
+            <TextView
+                    android:id="@+id/txt_ciudad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
         </LinearLayout>
 
 
@@ -75,8 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:layout_gravity="center">
             <Button
-                    android:id="@+id/btn_ver_mas"
-                    android:text="@string/ver"
+                    android:id="@+id/btn_mas_detalles"
+                    android:text="@string/mas_detalles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </LinearLayout>

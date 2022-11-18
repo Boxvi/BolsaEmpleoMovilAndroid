@@ -1,21 +1,41 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.admin;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.adapter.ListaConsultarCurriculumAdapter;
+import ec.edu.insta.movilgc1.model.estudiante.ModeloEstudiante;
+import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class PerfilEmpresa extends AppCompatActivity {
+public class ConsultarCurriculum extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ListaConsultarCurriculumAdapter listaConsultarCurriculumAdapter;
+    ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_empresa);
+        setContentView(R.layout.activity_consultar_curriculum);
+
+        recyclerView = findViewById(R.id.recycler_view_consultar_curriculum);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        modeloEstudiante.read(ConsultarCurriculum.this);
+
+        listaConsultarCurriculumAdapter = new ListaConsultarCurriculumAdapter(modeloEstudiante.read(ConsultarCurriculum.this));
+
+        recyclerView.setAdapter(listaConsultarCurriculumAdapter);
+
+
     }
 
     @Override
@@ -42,4 +62,6 @@ public class PerfilEmpresa extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }

@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.admin;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -9,20 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.ui.MainActivity;
+import ec.edu.insta.movilgc1.ui.admin.InicioAdminBusqueda;
 
-public class AdminBusqueda extends AppCompatActivity {
+public class RazonSocial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_busqueda);
-    }
-
-    //ir a main
-    public void irMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        setContentView(R.layout.activity_razon_social);
     }
 
     @Override
@@ -35,12 +30,18 @@ public class AdminBusqueda extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cerrar_sesion) {
-            Toast.makeText(this, "SESION CERRADA CON SATISFACCION", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Cerrar Sesión", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-
-
+    //ir a inicio admin busqeuda
+    public void goInicioAdminBusqueda(View view) {
+        Intent intent = new Intent(this, InicioAdminBusqueda.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.employe;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,18 +9,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class DatosPerfilEmpresa extends AppCompatActivity {
+public class InicioCV extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_datos_perfil_empresa);
+        setContentView(R.layout.activity_inicio_cv);
     }
 
-
-    public void goPerfilEmpresa(View view) {
-        Intent intent = new Intent(this, InicioAdminBusqueda.class);
+    public void goInicioBuscoEmpleo(View view) {
+        Intent intent = new Intent(this, InicioBuscoEmpleo.class);
         startActivity(intent);
 
     }
@@ -29,6 +29,7 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -42,4 +43,5 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

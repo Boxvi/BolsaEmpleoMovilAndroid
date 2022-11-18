@@ -1,22 +1,49 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.admin;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.adapter.ListaPerfilEmpresaAdapter;
+import ec.edu.insta.movilgc1.model.empresa.ModeloEmpresa;
+import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class ConsultarCurriculum extends AppCompatActivity {
+public class PerfilEmpresa extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ListaPerfilEmpresaAdapter listaPerfilEmpresaAdapter;
+
+    ModeloEmpresa modeloEmpresa = new ModeloEmpresa();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultar_curriculum);
+        setContentView(R.layout.activity_perfil_empresa);
+
+        recyclerView =findViewById(R.id.recycler_view_perfil_empresa);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        modeloEmpresa.read(PerfilEmpresa.this);
+
+        listaPerfilEmpresaAdapter = new ListaPerfilEmpresaAdapter(modeloEmpresa.read(PerfilEmpresa.this));
+
+        recyclerView.setAdapter(listaPerfilEmpresaAdapter);
+
+
+        System.out.println(modeloEmpresa.read(PerfilEmpresa.this).get(0).getNombre());
+
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,4 +69,7 @@ public class ConsultarCurriculum extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+
 }

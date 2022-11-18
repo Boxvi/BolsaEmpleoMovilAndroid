@@ -1,4 +1,4 @@
-package ec.edu.insta.movilgc1.ui;
+package ec.edu.insta.movilgc1.ui.employe;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import ec.edu.insta.movilgc1.R;
+import ec.edu.insta.movilgc1.ui.MainActivity;
 
 public class OfertasAplicadas extends AppCompatActivity {
 

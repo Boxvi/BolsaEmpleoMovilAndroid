@@ -20,7 +20,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_baseline_arrow_back_50"
-                android:id="@+id/ic_baseline_arrow_back_50" android:onClick="goInicioBuscoEmpleo"/>
+                android:id="@+id/btn_regresar_pefil_empresa_cv"/>
     </LinearLayout>
 
 
@@ -70,11 +70,21 @@
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
+                    android:text="@string/id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/_ID" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_ID"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
                     android:text="@string/nombres_apellidos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/nombres_apellidos" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/nombres_apellidos"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_nombres_apellidos"
                     android:layout_weight="1"/>
@@ -86,7 +96,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/fecha_nacimiento" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/fecha_nacimiento"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_fecha_nacimiento"
                     android:layout_weight="1"/>
@@ -99,7 +109,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/cedula_ciudadania" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/cedula_ciudadania"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_cedula_ciudadania"
                     android:layout_weight="1"/>
@@ -111,7 +121,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/direccion" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/direccion"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/view_direccion" android:layout_weight="1"/>
         </TableRow>
@@ -123,7 +133,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/telefono" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/telefono"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_telefono" android:layout_weight="1"/>
         </TableRow>
@@ -142,7 +152,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
             <TextView
-                    android:text="@string/logros_nombres"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_logros_nombres"
                     android:layout_weight="1"/>
@@ -163,7 +173,7 @@
                     android:layout_height="wrap_content" android:id="@+id/experencia_laboral_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/experencia_laboral_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_experencia_laboral_nombre"
                     android:layout_weight="1"/>
@@ -185,7 +195,7 @@
                     android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/referencias_personales_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_referencias_personales_nombre"
                     android:layout_weight="1"/>
@@ -206,7 +216,7 @@
                     android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
                     android:layout_weight="1"/>
             <TextView
-                    android:text="@string/capacitaciones_nombre"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_capacitaciones_nombre"
                     android:layout_weight="1"/>
@@ -220,13 +230,24 @@
             android:layout_height="50dp"
             android:gravity="center"
             tools:ignore="MissingConstraints"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
-        <TextView
-                android:text="@string/mensaje_informativo"
-                android:layout_width="wrap_content"
+        <Button
+                android:text="ACTIVAR"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/mensaje_informativo"/>
+                android:id="@+id/btn_activar"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"/>
+        <Button
+                android:text="DESACTIVAR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="10dp"
+                android:id="@+id/btn_desactivar"
+                android:layout_weight="1"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
