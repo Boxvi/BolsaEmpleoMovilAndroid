@@ -20,9 +20,14 @@
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                 android:src="@drawable/ic_baseline_menu_50"
                 android:id="@+id/ic_baseline_menu_50">
         </ImageButton>
+=======
+                android:src="@drawable/ic_baseline_arrow_back_50"
+                android:id="@+id/btn_regresar_pefil_empresa_cv"/>
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
     </LinearLayout>
 -->
 
@@ -84,13 +89,45 @@
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="NOMBRE COMPLETO"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" android:id="@+id/nombres_apellidos" android:layout_weight="1"/>
+=======
+                    android:text="@string/id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_cv_ID"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_username"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
             <TextView
                     android:text="nombres_apellidos"
                     android:layout_width="0dp"
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:layout_height="match_parent" android:id="@+id/txt_nombres_empresa"
+=======
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_nombres_apellidos"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -98,11 +135,17 @@
             <TextView
                     android:text="FECHA DE NACIMIENTO"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/fecha_nacimiento" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"  android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="fecha_nacimiento"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_ruc"
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_fecha_nacimiento"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -111,11 +154,17 @@
             <TextView
                     android:text="CEDULA"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/cedula_ciudadania" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"  android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="cedula_ciudadania"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_tipo_empresa"
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_cedula_ciudadania"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -123,11 +172,17 @@
             <TextView
                     android:text="DIRECCION"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/direccion" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="direccion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_direccion" android:layout_weight="1"/>
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_direccion" android:layout_weight="1"/>
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
         </TableRow>
 
 
@@ -137,6 +192,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/telefono" android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="telefono"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_sector" android:layout_weight="1"/>
@@ -161,10 +217,48 @@
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="EXPERIENCIA"
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_telefono" android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="estado_civil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
+            <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_cv_estado_civil"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="rol"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_cv_rol"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="@string/genero"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/experencia_laboral_nombre"
                     android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="experencia_laboral_nombre"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_razon_social"
@@ -176,13 +270,30 @@
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="REFERENCIAS"
+=======
+
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_genero"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="@string/correo_electronico"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="referencias_personales_nombre"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_correo_empresa"
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_correo"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -190,14 +301,24 @@
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent"/>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="CURSOS - CAPACITACIONES"
+=======
+                    android:text="@string/ciudad"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
                     android:layout_weight="1"/>
             <TextView
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
                     android:text="capacitaciones_nombre"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/txt_telefono_empresa"
+=======
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_ciudad"
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -209,12 +330,17 @@
             android:layout_height="50dp"
             android:gravity="center"
             tools:ignore="MissingConstraints"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
+<<<<<<< Updated upstream:app/src/main/res/layout/ver_curriculums.xml
         <Button
                 android:text="Validar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"/>
+=======
+
+>>>>>>> Stashed changes:app/src/main/res/layout/activity_inicio_cv.xml
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
