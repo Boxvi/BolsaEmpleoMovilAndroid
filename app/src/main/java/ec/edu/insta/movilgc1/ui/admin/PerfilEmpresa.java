@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +16,10 @@ import ec.edu.insta.movilgc1.adapter.ListaPerfilEmpresaAdapter;
 import ec.edu.insta.movilgc1.model.empresa.ModeloEmpresa;
 import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class PerfilEmpresa extends AppCompatActivity {
+public class PerfilEmpresa extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
+    private SearchView txt_Search;
     private ListaPerfilEmpresaAdapter listaPerfilEmpresaAdapter;
 
     ModeloEmpresa modeloEmpresa = new ModeloEmpresa();
@@ -71,5 +73,14 @@ public class PerfilEmpresa extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listaPerfilEmpresaAdapter.filtrado(newText);
+        return false;
+    }
 }

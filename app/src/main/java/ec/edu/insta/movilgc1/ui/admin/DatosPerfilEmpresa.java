@@ -121,10 +121,8 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     view_sector_empresa = findViewById(R.id.view_sector_empresa);
                     view_ciudad = findViewById(R.id.view_ciudad);
                     view_correo_empresa = findViewById(R.id.view_correo_empresa);
-                    view_telefono_empresa = findViewById(R.id.view_telefono_empresa);
                     view_departamento = findViewById(R.id.view_departamento);
                     view_razon_social = findViewById(R.id.view_razon_social);
-
 
                     view_nombres_empresa.setText(response.getString("nombre"));
                     view_ruc.setText(response.getString("ruc"));
@@ -134,12 +132,21 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     view_ciudad.setText(
                             response.getJSONObject("ciudad").getString("nombre") + ", Provincia " +
                                     response.getJSONObject("ciudad").getJSONObject("provincia").getString("nombre"));
+
+
                     view_razon_social.setText(response.getString("razonSocial"));
                     view_correo_empresa.setText(response.getString("sitioWeb"));
-                    view_telefono_empresa.setText(response.getJSONObject("usuario").getString("telefono"));
                     view_departamento.setText(response.getString("departamento"));
 
 
+
+                    /*
+                   // view_sector_empresa.setText(response.getJSONObject("sectorEmpresarial").getString("nombre"));
+                    view_ciudad.setText(
+                            response.getJSONObject("ciudad").getString("nombre") + ", Provincia " +
+                                    response.getJSONObject("ciudad").getJSONObject("provincia").getString("nombre"));
+
+*/
 
                     btn_activar = findViewById(R.id.btn_activar);
                     btn_desactivar = findViewById(R.id.btn_desactivar);
@@ -184,14 +191,8 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject();
 
                     jsonObject.put("username", response.getJSONObject("usuario").getString("username"));
-
-                    jsonObject.put("password", "1234");
-
-                    //modificar estado pero no contrasena
-                    //jsonObject.put("password", response.getJSONObject("usuario").getString("password"));
-                    //jsonObject.put("password", null);
-
                     jsonObject.put("email", response.getJSONObject("usuario").getString("email"));
+                    jsonObject.put("password", "1234");
                     jsonObject.put("telefono", response.getJSONObject("usuario").getString("telefono"));
                     jsonObject.put("estado", estado);
                     jsonObject.put("rol", response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));

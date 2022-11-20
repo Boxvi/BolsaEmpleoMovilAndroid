@@ -47,11 +47,12 @@
             tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout7">
-        <EditText
+
+        <SearchView
                 android:hint="INGRESE SU BUSQUEDA"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:id="@+id/txtSearch"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Search"/>
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

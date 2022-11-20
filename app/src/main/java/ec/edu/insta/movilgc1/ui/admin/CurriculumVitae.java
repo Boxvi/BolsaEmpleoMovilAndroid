@@ -148,11 +148,14 @@ public class CurriculumVitae extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject();
 
                     jsonObject.put("username", response.getJSONObject("usuario").getString("username"));
-                    jsonObject.put("password", "1234");
                     jsonObject.put("email", response.getJSONObject("usuario").getString("email"));
+                    jsonObject.put("password", "1234");
                     jsonObject.put("telefono", response.getJSONObject("usuario").getString("telefono"));
                     jsonObject.put("estado", estado);
                     jsonObject.put("rol", response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));
+
+                    System.out.println(jsonObject.toString());
+
 
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, URLPUT, jsonObject, new Response.Listener<JSONObject>() {
                         @Override

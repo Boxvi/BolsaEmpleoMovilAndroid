@@ -18,8 +18,7 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     private TextView view_nombre_estudiante, view_id_estudiante;
 
 
-
-   // private String ID_ESTUDIANTE =
+    // private String ID_ESTUDIANTE =
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +65,9 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     //ir Ofertas Laborales
     public void goOfertasLaborales(View view) {
         Intent intent = new Intent(this, OfertasLaborales.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
@@ -73,12 +75,12 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     //if Ofertas aplicadas
     public void goOfertasAplicadas(View view) {
         Intent intent = new Intent(this, OfertasAplicadas.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
-
-
-
 
 
 }

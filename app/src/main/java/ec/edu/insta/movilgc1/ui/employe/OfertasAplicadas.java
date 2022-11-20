@@ -13,14 +13,25 @@ import ec.edu.insta.movilgc1.ui.MainActivity;
 
 public class OfertasAplicadas extends AppCompatActivity {
 
+    String id_estudiante;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ofertas_aplicadas);
+
+        Bundle bundle = getIntent().getExtras();
+        id_estudiante = bundle.getString("id_estudiante");
+
+
+
     }
 
     public void goInicioBuscoEmpleo(View view) {
         Intent intent = new Intent(this, InicioBuscoEmpleo.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id_estudiante", id_estudiante);
+        intent.putExtras(bundle);
         startActivity(intent);
         finish();
     }

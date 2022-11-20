@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,9 +26,10 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class RazonSocial extends AppCompatActivity {
+public class RazonSocial extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
+    private SearchView txt_Search;
     private ListaRazonSocialAdapter listaRazonSocialAdapter;
 
     @Override
@@ -72,28 +75,31 @@ public class RazonSocial extends AppCompatActivity {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Ofertas ofertas = new Ofertas();
-
-
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        ofertas.setCiudad(response.getJSONObject(i).getString("ciudad"));
+                try {
+                    for (int i = 0; i < response.length(); i++) {
+                        Ofertas ofertas = new Ofertas();
 
                         ofertas.setId(response.getJSONObject(i).getInt("id"));
+                        System.out.println("id: " + ofertas.getId());
+                        ofertas.setCiudad(response.getJSONObject(i).getString("ciudad"));
                         ofertas.setEmpresa(response.getJSONObject(i).getString("empresa"));
                         ofertas.setSalario(response.getJSONObject(i).getString("salario"));
                         ofertas.setCargo(response.getJSONObject(i).getString("cargo"));
                         ofertas.setCiudad(response.getJSONObject(i).getString("ciudad"));
 
                         listaOfertas.add(ofertas);
-
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
                     }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
 
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RazonSocial.this);
+
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
                 recyclerView = findViewById(R.id.recycler_view_razon_social);
-                recyclerView.setLayoutManager(new LinearLayoutManager(RazonSocial.this));
+                recyclerView.setLayoutManager(linearLayoutManager);
 
                 listaRazonSocialAdapter = new ListaRazonSocialAdapter(listaOfertas);
                 recyclerView.setAdapter(listaRazonSocialAdapter);
@@ -107,4 +113,14 @@ public class RazonSocial extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listaRazonSocialAdapter.filtrado(newText);
+        return false;
+    }
 }

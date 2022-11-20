@@ -61,6 +61,19 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
 
 
     }
+    public void filtrado(String txt_Search){
+        txt_Search = txt_Search.toLowerCase();
+        listaRazonSocial.clear();
+        if(txt_Search.length() == 0){
+            listaRazonSocial.addAll(listaRazonSocialOriginal);
+        }else{
+            for(Ofertas ofertas: listaRazonSocialOriginal){
+                if(ofertas.getEmpresa().toLowerCase().contains(txt_Search)){
+                    listaRazonSocial.add(ofertas);
+                }
+            }
+        }
+    }
 
     @Override
     public int getItemCount() {

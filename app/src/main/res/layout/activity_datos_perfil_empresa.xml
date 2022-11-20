@@ -48,17 +48,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/tableLayout"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout" app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginBottom="4dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="50dp">
 
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:layout_gravity="center">
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="146dp" tools:srcCompat="@android:drawable/ic_input_get"
-                    android:id="@+id/imgEmpresa" android:layout_weight="2"
-                    app:srcCompat="@android:drawable/ic_input_get"/>
-        </TableRow>
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
@@ -153,20 +145,6 @@
                     android:layout_weight="1"/>
         </TableRow>
 
-        <!--
-                <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-                    <TextView
-                            android:text="ACT ECONOMICA"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
-                    <TextView
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content" android:id="@+id/view_act_economico"
-                            android:layout_weight="1"/>
-                </TableRow>
-        -->
-
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="RAZON SOCIAL"
@@ -195,6 +173,7 @@
         </TableRow>
 
 
+        <!--
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="NUMERO"
@@ -207,7 +186,7 @@
                     android:layout_height="wrap_content" android:id="@+id/view_telefono_empresa"
                     android:layout_weight="1"/>
         </TableRow>
-
+-->
 
     </TableLayout>
     <LinearLayout
