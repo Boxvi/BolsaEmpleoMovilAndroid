@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +18,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.adapter.ListaRazonSocialAdapter;
-import ec.edu.insta.movilgc1.model.razonsocial.Ofertas;
+import ec.edu.insta.movilgc1.model.razonsocial.RazonSocialC;
 import ec.edu.insta.movilgc1.ui.MainActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,24 +69,24 @@ public class RazonSocial extends AppCompatActivity implements SearchView.OnQuery
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        ArrayList<Ofertas> listaOfertas = new ArrayList<>();
+        ArrayList<RazonSocialC> listaOfertas = new ArrayList<>();
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
-                        Ofertas ofertas = new Ofertas();
+                        RazonSocialC razonSocialC = new RazonSocialC();
 
-                        ofertas.setId(response.getJSONObject(i).getInt("id"));
-                        System.out.println("id: " + ofertas.getId());
-                        ofertas.setCiudad(response.getJSONObject(i).getString("ciudad"));
-                        ofertas.setEmpresa(response.getJSONObject(i).getString("empresa"));
-                        ofertas.setSalario(response.getJSONObject(i).getString("salario"));
-                        ofertas.setCargo(response.getJSONObject(i).getString("cargo"));
-                        ofertas.setCiudad(response.getJSONObject(i).getString("ciudad"));
+                        razonSocialC.setId(response.getJSONObject(i).getInt("id"));
+                        System.out.println("id: " + razonSocialC.getId());
+                        razonSocialC.setCiudad(response.getJSONObject(i).getString("ciudad"));
+                        razonSocialC.setEmpresa(response.getJSONObject(i).getString("empresa"));
+                        razonSocialC.setSalario(response.getJSONObject(i).getString("salario"));
+                        razonSocialC.setCargo(response.getJSONObject(i).getString("cargo"));
+                        razonSocialC.setCiudad(response.getJSONObject(i).getString("ciudad"));
 
-                        listaOfertas.add(ofertas);
+                        listaOfertas.add(razonSocialC);
                     }
 
                 } catch (JSONException e) {

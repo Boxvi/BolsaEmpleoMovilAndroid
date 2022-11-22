@@ -38,9 +38,14 @@ public class InicioCV extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         view_cv_ID = findViewById(R.id.view_cv_ID);
-        view_cv_ID.setText(bundle.getString("id_estudiante"));
+        view_cv_username = findViewById(R.id.view_cv_username);
 
-        curriculimVitae(Integer.parseInt(view_cv_ID.getText().toString()));
+        view_cv_ID.setText(bundle.getString("username_id"));
+
+       view_cv_username.setText(bundle.getString("username_estudiante"));
+
+
+        curriculimVitae(view_cv_ID.getText().toString());
 
         btn_regresar_pefil_empresa_cv = findViewById(R.id.btn_regresar_pefil_empresa_cv);
         btn_regresar_pefil_empresa_cv.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +53,8 @@ public class InicioCV extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InicioCV.this, InicioBuscoEmpleo.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("id_estudiante", view_cv_ID.getText().toString());
+                bundle.putString("username_id", view_cv_ID.getText().toString());
+                bundle.putString("username_estudiante", view_cv_username.getText().toString());
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -58,7 +64,7 @@ public class InicioCV extends AppCompatActivity {
 
     }
 
-    private void curriculimVitae(int parseInt) {
+    private void curriculimVitae(String parseInt) {
 
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + parseInt;
 
@@ -82,7 +88,7 @@ public class InicioCV extends AppCompatActivity {
 
                     view_cv_nombres_apellidos.setText(response.getString("nombres") + " " + response.getString("apellidos"));
                     view_cv_fecha_nacimiento.setText(response.get("fechaNacimiento").toString());
-                    view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
+                    //view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
                     view_cv_cedula_ciudadanina.setText(response.getString("cedula"));
                     view_cv_direccion.setText(response.getString("direccion"));
                     view_cv_telefono.setText(response.getJSONObject("usuario").getString("telefono"));

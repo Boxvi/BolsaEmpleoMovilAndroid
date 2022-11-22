@@ -120,7 +120,10 @@ public class LoginGeneral extends AppCompatActivity {
                                     Intent intent2 = new Intent(LoginGeneral.this, InicioBuscoEmpleo.class);
                                     Bundle bundle = new Bundle();
 
-                                    bundle.putString("id_estudiante", usuario1.getId().toString());
+                                    bundle.putString("username_id", usuario1.getId().toString());
+                                    bundle.putString("username_estudiante", usuario1.getUsername());
+
+
                                     intent2.putExtras(bundle);
 
                                     startActivity(intent2);

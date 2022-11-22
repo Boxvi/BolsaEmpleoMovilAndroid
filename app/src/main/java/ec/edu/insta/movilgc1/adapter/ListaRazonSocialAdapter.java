@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import ec.edu.insta.movilgc1.R;
-import ec.edu.insta.movilgc1.model.razonsocial.Ofertas;
+import ec.edu.insta.movilgc1.model.razonsocial.RazonSocialC;
 import ec.edu.insta.movilgc1.ui.admin.AdminBusqueda;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,12 +20,12 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSocialAdapter.ViewHolder> {
 
-    private ArrayList<Ofertas> listaRazonSocial;
-    private ArrayList<Ofertas> listaRazonSocialOriginal;
+    private ArrayList<RazonSocialC> listaRazonSocial;
+    private ArrayList<RazonSocialC> listaRazonSocialOriginal;
 
     Bundle bundle = new Bundle();
 
-    public ListaRazonSocialAdapter(ArrayList<Ofertas> listaRazonSocial) {
+    public ListaRazonSocialAdapter(ArrayList<RazonSocialC> listaRazonSocial) {
         this.listaRazonSocial = listaRazonSocial;
         listaRazonSocialOriginal = new ArrayList<>();
         listaRazonSocialOriginal.addAll(listaRazonSocial);
@@ -67,9 +67,9 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
         if(txt_Search.length() == 0){
             listaRazonSocial.addAll(listaRazonSocialOriginal);
         }else{
-            for(Ofertas ofertas: listaRazonSocialOriginal){
-                if(ofertas.getEmpresa().toLowerCase().contains(txt_Search)){
-                    listaRazonSocial.add(ofertas);
+            for(RazonSocialC razonSocialC : listaRazonSocialOriginal){
+                if(razonSocialC.getEmpresa().toLowerCase().contains(txt_Search)){
+                    listaRazonSocial.add(razonSocialC);
                 }
             }
         }

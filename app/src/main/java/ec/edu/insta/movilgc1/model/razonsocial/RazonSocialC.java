@@ -1,6 +1,6 @@
 package ec.edu.insta.movilgc1.model.razonsocial;
 
-public class Ofertas {
+public class RazonSocialC {
 
     public int id;
     public String empresa;
@@ -8,10 +8,10 @@ public class Ofertas {
     public String cargo;
     public String ciudad;
 
-    public Ofertas() {
+    public RazonSocialC() {
     }
 
-    public Ofertas(int id, String empresa, String salario, String cargo, String ciudad) {
+    public RazonSocialC(int id, String empresa, String salario, String cargo, String ciudad) {
         this.id = id;
         this.empresa = empresa;
         this.salario = salario;

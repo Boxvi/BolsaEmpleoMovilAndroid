@@ -17,8 +17,9 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
 
     private TextView view_nombre_estudiante, view_id_estudiante;
 
+    public static String user;
+    public static String iduser;
 
-    // private String ID_ESTUDIANTE =
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,14 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
         setContentView(R.layout.activity_inicio_busco_empleo);
 
         view_id_estudiante = findViewById(R.id.view_id_estudiante);
+        view_nombre_estudiante = findViewById(R.id.view_nombre_estudiante);
 
         Bundle bundle = getIntent().getExtras();
-        view_id_estudiante.setText(bundle.getString("id_estudiante"));
+        view_id_estudiante.setText(bundle.getString("username_id"));
+        view_nombre_estudiante.setText(bundle.getString("username_estudiante"));
 
-        view_nombre_estudiante = findViewById(R.id.view_nombre_estudiante);
+        user = view_nombre_estudiante.getText().toString();
+        iduser = view_id_estudiante.getText().toString();
 
     }
 
@@ -56,7 +60,8 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     public void goCurriculumVitae(View view) {
         Intent intent = new Intent(this, InicioCV.class);
         Bundle bundle = new Bundle();
-        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
         intent.putExtras(bundle);
         startActivity(intent);
 
@@ -66,21 +71,23 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     public void goOfertasLaborales(View view) {
         Intent intent = new Intent(this, OfertasLaborales.class);
         Bundle bundle = new Bundle();
-        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
         intent.putExtras(bundle);
         startActivity(intent);
 
     }
 
-    //if Ofertas aplicadas
-    public void goOfertasAplicadas(View view) {
-        Intent intent = new Intent(this, OfertasAplicadas.class);
+    public void datosAdpter(View view){
+        Intent intent = new Intent(this, OfertasLaborales.class);
         Bundle bundle = new Bundle();
-        bundle.putString("id_estudiante", view_id_estudiante.getText().toString());
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
         intent.putExtras(bundle);
         startActivity(intent);
-
     }
+
+
 
 
 }
