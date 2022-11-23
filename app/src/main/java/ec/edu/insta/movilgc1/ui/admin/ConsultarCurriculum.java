@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +16,10 @@ import ec.edu.insta.movilgc1.adapter.ListaConsultarCurriculumAdapter;
 import ec.edu.insta.movilgc1.model.estudiante.ModeloEstudiante;
 import ec.edu.insta.movilgc1.ui.MainActivity;
 
-public class ConsultarCurriculum extends AppCompatActivity {
+public class ConsultarCurriculum extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private RecyclerView recyclerView;
+    private SearchView txt_Search;
     private ListaConsultarCurriculumAdapter listaConsultarCurriculumAdapter;
     ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
 
@@ -25,6 +27,9 @@ public class ConsultarCurriculum extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_curriculum);
+
+        txt_Search = findViewById(R.id.txt_Search);
+
 
         recyclerView = findViewById(R.id.recycler_view_consultar_curriculum);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -35,6 +40,7 @@ public class ConsultarCurriculum extends AppCompatActivity {
 
         recyclerView.setAdapter(listaConsultarCurriculumAdapter);
 
+        txt_Search.setOnQueryTextListener(this);
 
     }
 
@@ -64,4 +70,14 @@ public class ConsultarCurriculum extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listaConsultarCurriculumAdapter.filtrado(newText);
+        return false;
+    }
 }

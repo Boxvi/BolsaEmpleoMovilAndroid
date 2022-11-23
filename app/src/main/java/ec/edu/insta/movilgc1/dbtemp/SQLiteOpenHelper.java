@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "dbtemp";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private static String TABLA_EMPRESA = "create table empresa(" +
             "id INTEGER PRIMARY KEY  NOT NULL, " +
@@ -55,6 +55,25 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
 
     private static String DROP_TABLE_ESTUDIANTE = "DROP TABLE IF EXISTS estudiante";
 
+    private static String TABLA_OFERTA = "create table ofertas(" +
+            "id INTEGER PRIMARY KEY  NOT NULL, " +
+            "cargo text, " +
+            "descripcion text, " +
+            "area_conocimiento text, " +
+            "salario text, " +
+            "jornada text, " +
+            "requisitos_academicos text, " +
+            "experiencia text, " +
+            "ubicacion text, " +
+            "fecha_inicio text, " +
+            "fecha_fin text, " +
+            "empresa text, " +
+            "ciudad text, " +
+            "estado boolean)";
+
+    private static String DROP_TABLE_OFERTA = "DROP TABLE IF EXISTS ofertas";
+
+
     public SQLiteOpenHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -65,6 +84,7 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TABLA_EMPRESA);
         sqLiteDatabase.execSQL(TABLA_USUARIOS);
         sqLiteDatabase.execSQL(TABLA_ESTUDIANTE);
+        sqLiteDatabase.execSQL(TABLA_OFERTA);
 
     }
 
@@ -72,7 +92,8 @@ public class SQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL(DROP_TABLE_EMPRESA);
         sqLiteDatabase.execSQL(DROP_TABLE_USUARIOS);
-        sqLiteDatabase.execSQL(TABLA_ESTUDIANTE);
+        sqLiteDatabase.execSQL(DROP_TABLE_ESTUDIANTE);
+        sqLiteDatabase.execSQL(DROP_TABLE_OFERTA);
         onCreate(sqLiteDatabase);
 
 

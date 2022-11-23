@@ -72,7 +72,7 @@
             <TextView
                     android:text="@string/id"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/_ID" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/view_cv_ID"
@@ -81,12 +81,23 @@
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
-                    android:text="@string/nombres_apellidos"
+                    android:text="@string/username"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/nombres_apellidos" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
             <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_nombres_apellidos"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_username"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="@string/nombres_apellidos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_nombres_apellidos"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -94,11 +105,11 @@
             <TextView
                     android:text="@string/fecha_nacimiento"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/fecha_nacimiento" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"  android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_fecha_nacimiento"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_fecha_nacimiento"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -107,11 +118,11 @@
             <TextView
                     android:text="@string/cedula_ciudadania"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/cedula_ciudadania" android:layout_weight="1"/>
+                    android:layout_height="wrap_content"  android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_cedula_ciudadania"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_cedula_ciudadania"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -119,11 +130,11 @@
             <TextView
                     android:text="@string/direccion"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/direccion" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/view_direccion" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_direccion" android:layout_weight="1"/>
         </TableRow>
 
 
@@ -135,90 +146,73 @@
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_telefono" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_telefono" android:layout_weight="1"/>
         </TableRow>
-
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
-                    android:text="@string/logros"
-                    android:layout_width="wrap_content"
-                    android:gravity="center"
-                    android:layout_height="wrap_content" android:id="@+id/logros" android:layout_weight="2"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/logros_nombres"
+                    android:text="@string/estado_civil"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/logros_nombres" android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_logros_nombres"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_cv_estado_civil"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="@string/rol"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_cv_rol"
                     android:layout_weight="1"/>
         </TableRow>
 
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
-                    android:text="@string/experencia_laboral"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textView24" android:layout_weight="2"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/experencia_laboral_nombre"
+                    android:text="@string/genero"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/experencia_laboral_nombre"
                     android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_experencia_laboral_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_genero"
+                    android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+            <TextView
+                    android:text="@string/correo_electronico"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_correo"
                     android:layout_weight="1"/>
         </TableRow>
 
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
-                    android:text="@string/referencias_personales"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/referencias_personales"
-                    android:layout_weight="2"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/referencias_personales_nombre"
+                    android:text="@string/ciudad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/referencias_personales_nombre"
                     android:layout_weight="1"/>
             <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_referencias_personales_nombre"
-                    android:layout_weight="1"/>
-        </TableRow>
-
-
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/capacitaciones"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/capacitaciones" android:layout_weight="2"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/capacitaciones_nombre"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
-                    android:layout_weight="1"/>
-            <TextView
-
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/txt_capacitaciones_nombre"
+                    android:layout_height="wrap_content" android:id="@+id/view_cv_ciudad"
                     android:layout_weight="1"/>
         </TableRow>
 
@@ -234,20 +228,33 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
         <Button
-                android:text="ACTIVAR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/btn_activar"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"/>
-        <Button
-                android:text="DESACTIVAR"
+                android:enabled="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="15dp"
+                android:text="ACTIVAR"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+        />
 
-                android:layout_marginLeft="10dp"
+        <Button
                 android:id="@+id/btn_desactivar"
-                android:layout_weight="1"/>
+                android:enabled="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="15dp"
+                android:text="DESACTIVAR"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+        />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

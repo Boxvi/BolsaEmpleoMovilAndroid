@@ -48,20 +48,21 @@
             tools:ignore="MissingConstraints"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout8">
-        <EditText
+        <SearchView
                 android:hint="INGRESE SU BUSQUEDA"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:id="@+id/txtSearch"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Search"/>
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="391dp"
-            android:layout_height="560dp"
-            tools:ignore="MissingConstraints" android:id="@+id/recycler_view_consultar_curriculum"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="100dp"
+            android:id="@+id/recycler_view_consultar_curriculum"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/linearLayout8"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

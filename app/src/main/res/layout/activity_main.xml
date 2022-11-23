@@ -11,45 +11,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/linearLayout2" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-        <LinearLayout
+        <Button
+                android:id="@+id/btn_busco_empleo"
                 android:layout_width="match_parent"
-                android:layout_margin="30dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal">
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/btn_busco_empleo"
-                    android:drawableLeft="@drawable/ic_baseline_manage_search_120"
-                    android:text="@string/busco_empleo"
-                    style="?attr/materialButtonOutlinedStyle"
-                    app:strokeColor="#000"
-            />
+                android:layout_margin="30dp"
+                android:text="@string/busco_empleo"
+                app:icon="@drawable/ic_baseline_manage_search_120"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:iconTint="@color/material_on_background_emphasis_high_type"/>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <Button
+                android:id="@+id/btn_eres_admin"
                 android:layout_width="match_parent"
-                android:layout_margin="30dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal">
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/btn_eres_admin"
-                    android:drawableLeft="@drawable/ic_baseline_person_120"
-                    android:text="@string/eres_admin"
-                    style="?attr/materialButtonOutlinedStyle"
-                    app:strokeColor="#000"
-                    android:textColor="@color/black"/>
-
-        </LinearLayout>
-
+                android:layout_margin="30dp"
+                android:text="@string/eres_admin"
+                app:icon="@drawable/ic_baseline_person_120"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:iconTint="@color/material_on_background_emphasis_high_type"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

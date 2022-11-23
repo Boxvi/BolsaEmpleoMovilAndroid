@@ -3,6 +3,7 @@
           package="ec.edu.insta.movilgc1">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
             android:allowBackup="true"
@@ -12,9 +13,14 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MOVILGC1"
             android:usesCleartextTraffic="true">
+
         <activity
                 android:name=".ui.RegistroPerfilEmpleado"
                 android:exported="true"/>
+        <activity
+                android:name=".ui.employe.DatosOfertasLaborales"
+                android:exported="true"/>
+
         <activity
                 android:name=".ui.RegistroEmpleado"
                 android:exported="true"/>
@@ -35,9 +41,6 @@
                 android:exported="true"/>
         <activity
                 android:name=".ui.admin.ConsultarCurriculum"
-                android:exported="true"/>
-        <activity
-                android:name=".ui.employe.OfertasAplicadas"
                 android:exported="true"/>
         <activity
                 android:name=".ui.employe.OfertasLaborales"

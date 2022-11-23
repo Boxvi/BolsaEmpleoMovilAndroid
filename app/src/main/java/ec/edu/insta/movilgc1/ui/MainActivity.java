@@ -17,6 +17,8 @@ import ec.edu.insta.movilgc1.model.empresa.Empresa;
 import ec.edu.insta.movilgc1.model.empresa.ModeloEmpresa;
 import ec.edu.insta.movilgc1.model.estudiante.Estudiante;
 import ec.edu.insta.movilgc1.model.estudiante.ModeloEstudiante;
+import ec.edu.insta.movilgc1.model.ofertas.ModeloOferta;
+import ec.edu.insta.movilgc1.model.ofertas.Oferta;
 import ec.edu.insta.movilgc1.model.usuario.ModeloUsuario;
 import ec.edu.insta.movilgc1.model.usuario.Usuario;
 import org.jetbrains.annotations.NotNull;
@@ -37,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cargarDatosUsuario();
+
         cargarDatosPerfilEmpresa();
         cargarConsultarCurriculum();
+        cargarDatosOfertas();
 
         btn_busco_empleo = findViewById(R.id.btn_busco_empleo);
         btn_eres_admin = findViewById(R.id.btn_eres_admin);
@@ -258,10 +262,76 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("estadoCivil"),
                 response.getJSONObject(i).getString("rutaImagen"),
                 response.getJSONObject(i).getString("urlImagen"),
-                false);
+                true);
 
         return modeloEstudiante;
 
+    }
+
+    public void cargarDatosOfertas() {
+        String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ofertas";
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    ModeloOferta modeloOferta = new ModeloOferta();
+
+                    ArrayList<Oferta> ofertaArrayList = modeloOferta.read(MainActivity.this);
+
+                    if (ofertaArrayList == null) {
+                        for (int i = ofertaArrayList.size(); i < response.length(); i++) {
+                            modeloOferta = getModeloOferta(response, i);
+                            modeloOferta.create(MainActivity.this);
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOOOOOOOOOOOOOOS", Toast.LENGTH_SHORT).show();
+                    } else {
+                        for (int i = ofertaArrayList.size(); i < response.length(); i++) {
+                            modeloOferta = getModeloOferta(response, i);
+                            modeloOferta.create(MainActivity.this);
+                        }
+                        for (int i = 0; i < response.length(); i++) {
+                            modeloOferta = getModeloOferta(response, i);
+                            modeloOferta.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
+                        }
+                        Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOOOOOOOOOOOOOOOOS", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+
+    }
+
+    @NotNull
+    private ModeloOferta getModeloOferta(JSONArray response, int i) throws JSONException {
+        ModeloOferta modeloOferta;
+        modeloOferta = new ModeloOferta(
+                response.getJSONObject(i).getInt("id"),
+                response.getJSONObject(i).getString("cargo"),
+                response.getJSONObject(i).getString("descripcion"),
+                response.getJSONObject(i).getString("area_conocimiento"),
+                response.getJSONObject(i).getString("salario"),
+                response.getJSONObject(i).getString("jornada"),
+                response.getJSONObject(i).getString("requisitos_academicos"),
+                response.getJSONObject(i).getString("experiencia"),
+                response.getJSONObject(i).getString("ubicacion"),
+                response.getJSONObject(i).getString("fecha_inicio"),
+                response.getJSONObject(i).getString("fecha_fin"),
+                response.getJSONObject(i).getString("empresa"),
+                response.getJSONObject(i).getString("ciudad"),
+                false);
+        return modeloOferta;
     }
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +15,27 @@ import ec.edu.insta.movilgc1.ui.MainActivity;
 public class InicioBuscoEmpleo extends AppCompatActivity {
 
 
+    private TextView view_nombre_estudiante, view_id_estudiante;
+
+    public static String user;
+    public static String iduser;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_busco_empleo);
+
+        view_id_estudiante = findViewById(R.id.view_id_estudiante);
+        view_nombre_estudiante = findViewById(R.id.view_nombre_estudiante);
+
+        Bundle bundle = getIntent().getExtras();
+        view_id_estudiante.setText(bundle.getString("username_id"));
+        view_nombre_estudiante.setText(bundle.getString("username_estudiante"));
+
+        user = view_nombre_estudiante.getText().toString();
+        iduser = view_id_estudiante.getText().toString();
+
     }
 
     @Override
@@ -41,6 +59,10 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     //ir Curriculum vitae
     public void goCurriculumVitae(View view) {
         Intent intent = new Intent(this, InicioCV.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
@@ -48,17 +70,22 @@ public class InicioBuscoEmpleo extends AppCompatActivity {
     //ir Ofertas Laborales
     public void goOfertasLaborales(View view) {
         Intent intent = new Intent(this, OfertasLaborales.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
 
-    //if Ofertas aplicadas
-    public void goOfertasAplicadas(View view) {
-        Intent intent = new Intent(this, OfertasAplicadas.class);
+    public void datosAdpter(View view){
+        Intent intent = new Intent(this, OfertasLaborales.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("username_id", iduser);
+        bundle.putString("username_estudiante", user);
+        intent.putExtras(bundle);
         startActivity(intent);
-
     }
-
 
 
 

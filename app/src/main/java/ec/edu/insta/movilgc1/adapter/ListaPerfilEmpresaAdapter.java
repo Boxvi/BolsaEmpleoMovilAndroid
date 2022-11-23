@@ -63,6 +63,21 @@ public class ListaPerfilEmpresaAdapter extends RecyclerView.Adapter<ListaPerfilE
         });
     }
 
+    public void filtrado(String txt_Search) {
+        txt_Search = txt_Search.toLowerCase();
+        listaPerfilEmpresa.clear();
+        if (txt_Search.length() == 0) {
+            listaPerfilEmpresa.addAll(listaPerfilEmpresaOriginal);
+        } else {
+            for (Empresa empresa : listaPerfilEmpresaOriginal) {
+                if (empresa.getNombre().toLowerCase().contains(txt_Search)) {
+                    listaPerfilEmpresa.add(empresa);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return listaPerfilEmpresa.size();

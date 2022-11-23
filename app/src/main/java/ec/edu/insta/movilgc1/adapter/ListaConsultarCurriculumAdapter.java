@@ -59,6 +59,22 @@ public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaC
 
     }
 
+    public void filtrado(String txt_Search){
+        txt_Search = txt_Search.toLowerCase();
+        listaConsultarCurriculum.clear();
+        if (txt_Search.length() == 0){
+            listaConsultarCurriculum.addAll(listaConsultarCurriculumOriginal);
+        }else {
+            for (Estudiante estudiante : listaConsultarCurriculumOriginal){
+                if (estudiante.getNombres().toLowerCase().contains(txt_Search)){
+                    listaConsultarCurriculum.add(estudiante);
+                }
+            }
+        }
+        notifyDataSetChanged();
+
+    }
+
     @Override
     public int getItemCount() {
         return listaConsultarCurriculum.size();

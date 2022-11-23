@@ -23,10 +23,10 @@ public class ModeloEstudiante extends Estudiante implements CrudGeneric<Estudian
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
         String noSql = "INSERT INTO estudiante (cedula, nombres, apellidos, genero, fecha_nacimiento, ciudad, direccion," +
-                " estado_civil, ruta_imagen, url_imagen, estado) VALUES ('" + getCedula() + "', '" + getNombres() + "', '"
+                " estado_civil, ruta_imagen, url_imagen) VALUES ('" + getCedula() + "', '" + getNombres() + "', '"
                 + getApellidos() + "', '" + getGenero() + "', '" + getFechaNacimiento() + "', '"
                 + getCiudad() + "', '" + getDireccion() + "', '" + getEstadoCivil() + "', '"
-                + getRutaImagen() + "', '" + getUrlImagen() + "', " + getEstado() + ")";
+                + getRutaImagen() + "', '" + getUrlImagen() + "')";
 
         sqLiteOpenHelper.noQuery(noSql);
         sqLiteOpenHelper.close();
@@ -111,12 +111,4 @@ public class ModeloEstudiante extends Estudiante implements CrudGeneric<Estudian
     }
 
 
-    public Estudiante buscarPorUsername(Context context, String email) {
-
-        sqLiteOpenHelper = new SQLiteOpenHelper(context);
-
-        String sql = "SELECT * FROM estudiante where ";
-        return null;
-
-    }
 }

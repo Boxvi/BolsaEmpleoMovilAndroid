@@ -40,6 +40,184 @@
                 android:id="@+id/ofertas_laborales"/>
     </LinearLayout>
 
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+
+            <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_username_r"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/cedula_ciudadania"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
+                    app:counterMaxLength="10"
+                    app:counterEnabled="true"
+                    app:counterTextColor="@color/material_on_background_emphasis_high_type"
+            >
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTextCedula"
+                        android:inputType="number"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/nombres"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
+            >
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTextNombres"
+                        android:inputType="textPersonName"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/apellidos"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
+            >
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTextApellidos"
+                        android:inputType="textPersonName"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/spinnerGenero"
+                    android:hint="@string/genero"
+                    android:minHeight="50dp">
+            </Spinner>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Fecha De Nacimiento:"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
+                    app:helperText="AAAA-MM-DD"
+                    app:helperTextEnabled="true"
+                    app:helperTextTextColor="@color/material_on_background_emphasis_high_type"
+            >
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTextDate"
+                        android:inputType="date"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/spinnerCiudad"
+                    android:hint="@string/ciudades"
+                    android:minHeight="50dp">
+            </Spinner>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/direccion"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:boxStrokeColor="@color/material_on_background_emphasis_high_type"
+                     >
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTextDireccion"
+                        android:inputType="textPersonName"
+                />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/spinnerEstadoCivil"
+                    android:hint="ESTADO CIVIL"
+                    android:minHeight="50dp">
+            </Spinner>
+
+            <Button
+                    android:id="@+id/btn_registrarse"
+                    android:enabled="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registrarse"
+                    style="?attr/materialButtonOutlinedStyle"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/material_on_background_emphasis_high_type"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+
+            />
+
+            <!--
+            <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registrarse"
+
+                    android:id="@+id/btn_registrarse" android:minHeight="50dp"
+            />-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,90 +227,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="vertical">
 
-            <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/view_username_r"/>
-
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="@string/cedula_ciudadania"
-                    android:id="@+id/editTextCedula" android:minHeight="50dp"/>
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="@string/nombres"
-                    android:id="@+id/editTextNombres" android:minHeight="50dp"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="@string/apellidos"
-                    android:id="@+id/editTextApellidos" android:minHeight="50dp"/>
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerGenero"
-                    android:hint="@string/genero"
-                    android:minHeight="50dp">
-            </Spinner>
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Fecha De Nacimiento: aaaa-mm-dd"
-                    android:inputType="date"
-                    android:minHeight="50dp"
-                    android:id="@+id/editTextDate"/>
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerCiudad"
-                    android:hint="@string/ciudades"
-                    android:minHeight="50dp">
-            </Spinner>
-
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="@string/direccion"
-                    android:id="@+id/editTextDireccion" android:minHeight="50dp"/>
-
-            <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinnerEstadoCivil"
-                    android:hint="ESTADO CIVIL"
-                    android:minHeight="50dp">
-            </Spinner>
-
-
-
-            <Button
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/registrarse"
-
-                    android:id="@+id/btn_registrarse" android:minHeight="50dp"
-            />
-
-
-        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

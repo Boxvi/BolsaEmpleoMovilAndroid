@@ -21,7 +21,6 @@
     <string name="consultar_ofertas">Consultar Ofertas</string>
 
 
-    <string name="informacion_buscada">Informacion Buscada</string>
     <string name="razon_social">Razon Social</string>
     <string name="cargo">Cargo</string>
     <string name="tipo_cargo">Tipo Cargo</string>
@@ -31,7 +30,6 @@
     <string name="jornada">Jornada</string>
     <string name="requisitos_academicos">Requisitos Academicos</string>
     <string name="experiencia">Experiencia</string>
-    <string name="ubicacion">Ubicacion</string>
     <string name="fecha_inicio_convocatoria">Fecha Inicio Convocatoria</string>
     <string name="fecha_fin_convocatoria">Fecha Fin Convocatoria</string>
 
@@ -63,7 +61,6 @@
     <string name="ingresar">INGRESAR</string>
     <string name="nombre_empresa">Nombre Empresa</string>
     <string name="tipo_empresa">Tipo Empresa</string>
-    <string name="ciudad">Ciudad</string>
     <string name="mas_detalles">Mas Detalles</string>
     <string name="title_activity_curriculum_vitae">CurriculumVitae</string>
     <string name="prompt_email">Email</string>
@@ -89,6 +86,11 @@
 
     <string name="comboGeneros">GENERO</string>
     <string name="ciudades">Ciudades</string>
+    <string name="estado_civil">Estado Civil</string>
+    <string name="rol">Rol</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="username">Username</string>
+    <string name="ubicacion">Ubicacion</string>
 
     <string-array name="generos">
         <item>Masculino</item>
