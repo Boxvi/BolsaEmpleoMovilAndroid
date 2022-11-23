@@ -75,6 +75,9 @@ public class RegistroEmpleado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegistroEmpleado.this, LoginGeneral.class);
+
+                bundle.putString("tipo", "BUSCO EMPLEO");
+                intent.putExtras(bundle);
                 startActivity(intent);
                 finish();
             }

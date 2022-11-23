@@ -111,5 +111,4 @@ public class ModeloEstudiante extends Estudiante implements CrudGeneric<Estudian
     }
 
 
-
 }

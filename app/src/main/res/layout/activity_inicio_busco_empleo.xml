@@ -19,18 +19,22 @@
         <TextView
                 android:text="@string/busco_empleo"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+        />
         <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/view_nombre_estudiante" android:layout_weight="1"/>
+                android:id="@+id/view_nombre_estudiante" android:layout_weight="1"
+                android:textColor="@color/material_on_background_emphasis_high_type"/>
         <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/view_id_estudiante" android:layout_weight="1"/>
+                android:id="@+id/view_id_estudiante" android:layout_weight="1"
+                android:textColor="@color/material_on_background_emphasis_high_type"/>
 
     </LinearLayout>
 
@@ -41,43 +45,35 @@
             android:layout_marginTop="50dp"
             android:id="@+id/linearLayout2" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <Button
+                android:id="@+id/btn_curriculum_vitae"
                 android:layout_width="match_parent"
-                android:layout_margin="25dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal">
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/btn_curriculum_vitae"
-                    android:drawableLeft="@drawable/ic_baseline_library_books_120"
-                    android:text="@string/curriculum_vitae"
-                    style="?attr/materialButtonOutlinedStyle"
-                    app:strokeColor="#000"
-                    android:textColor="@color/black" android:onClick="goCurriculumVitae"/>
+                android:layout_margin="30dp"
+                android:text="@string/curriculum_vitae"
+                app:icon="@drawable/ic_baseline_library_books_120"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:iconTint="@color/material_on_background_emphasis_high_type"
+                android:onClick="goCurriculumVitae"/>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <Button
+                android:id="@+id/btn_ofertas_laborales"
                 android:layout_width="match_parent"
-                android:layout_margin="25dp"
                 android:layout_height="150dp"
-                android:orientation="horizontal">
-            <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:id="@+id/btn_ofertas_laborales"
-                    android:drawableLeft="@drawable/ic_baseline_email_120"
-                    android:text="@string/ofertas_laborales"
-                    style="?attr/materialButtonOutlinedStyle"
-                    app:strokeColor="#000"
-                    android:textColor="@color/black" android:onClick="goOfertasLaborales"/>
-
-        </LinearLayout>
-
-
+                android:layout_margin="30dp"
+                android:text="@string/ofertas_laborales"
+                app:icon="@drawable/ic_baseline_email_120"
+                style="?attr/materialButtonOutlinedStyle"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:iconTint="@color/material_on_background_emphasis_high_type"
+                android:onClick="goOfertasLaborales"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
