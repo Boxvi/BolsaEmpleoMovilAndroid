@@ -331,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("empresa"),
                 response.getJSONObject(i).getString("ciudad"),
                 false);
+        System.out.println(response.getJSONObject(i).getInt("id"));
         return modeloOferta;
     }
 

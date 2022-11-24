@@ -22,7 +22,7 @@ public class ModeloEmpresa extends Empresa implements CrudGeneric<Empresa, Integ
     @Override
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String noSql = "INSERT INTO empresa ( sectorEmpresarial, ruc, nombre, tipoEmpresa, razonSocial, departamento, ciudad, direccion, sitioWeb, estado) VALUES ( '"
+        String noSql = "INSERT INTO empresa ( id, sectorEmpresarial, ruc, nombre, tipoEmpresa, razonSocial, departamento, ciudad, direccion, sitioWeb, estado) VALUES ('"+getId()+"', '"
                 + getSectorEmpresarial() + "', '" + getRuc() + "', '" + getNombre() + "', '" + getTipoEmpresa() + "', '"
                 + getRazonSocial() + "', '" + getDepartamento() + "', '" + getCiudad() + "', '" + getDireccion() + "', '"
                 + getSitioWeb() + "', '" + isEstado() + "');";

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
@@ -173,21 +174,6 @@
         </TableRow>
 
 
-        <!--
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="NUMERO"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/capacitaciones_nombre"
-                    android:layout_weight="1"/>
-            <TextView
-
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" android:id="@+id/view_telefono_empresa"
-                    android:layout_weight="1"/>
-        </TableRow>
--->
-
     </TableLayout>
     <LinearLayout
             android:orientation="horizontal"
@@ -199,20 +185,28 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout">
         <Button
-                android:text="ACTIVAR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/btn_activar"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"/>
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="40dp"
+                android:enabled="true"
+                android:text="ACTIVAR"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                app:strokeWidth="2dp" />
         <Button
-                android:text="DESACTIVAR"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="10dp"
                 android:id="@+id/btn_desactivar"
-                android:layout_weight="1"/>
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:enabled="true"
+                android:text="DESACTIVAR"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:strokeColor="@color/material_on_background_emphasis_high_type"
+                app:strokeWidth="2dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

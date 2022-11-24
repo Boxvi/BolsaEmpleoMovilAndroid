@@ -1,7 +1,5 @@
 package ec.edu.insta.movilgc1.adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +17,8 @@ import ec.edu.insta.movilgc1.ui.employe.DatosOfertasLaborales;
 
 import java.util.ArrayList;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfertasLaboralesAdapter.ViewHolder> {
 
     private ArrayList<Oferta> ofertaArrayList;
@@ -31,7 +31,7 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
     public ListaOfertasLaboralesAdapter(ArrayList<Oferta> ofertaArrayList) {
         this.ofertaArrayList = ofertaArrayList;
         this.context = context;
-        ofertaArrayListOriginal=new ArrayList<>();
+        ofertaArrayListOriginal = new ArrayList<>();
         ofertaArrayListOriginal.addAll(ofertaArrayList);
     }
 
@@ -39,7 +39,7 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
     @Override
     public ListaOfertasLaboralesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.lista_ofertas_laborales,parent,false);
+                .inflate(R.layout.lista_ofertas_laborales, parent, false);
         return new ListaOfertasLaboralesAdapter.ViewHolder(view);
     }
 
@@ -47,9 +47,7 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
-
-
-        holder.txt_id.setText(ofertaArrayList.get(position).getId()+40+"");
+        holder.txt_id.setText(ofertaArrayList.get(position).getId() + "");
         holder.txt_cargo.setText(ofertaArrayList.get(position).getCargo());
         holder.txt_descripcion.setText(ofertaArrayList.get(position).getDescripcion());
         holder.txt_area_conocimiento.setText(ofertaArrayList.get(position).getArea_conocimiento());
@@ -58,7 +56,7 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
         holder.btn_verMas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bundle.putString("idOferta", ofertaArrayList.get(position).getId() + 40+"");
+                bundle.putString("idOferta", ofertaArrayList.get(position).getId() + "");
                 Intent intent = new Intent(v.getContext(), DatosOfertasLaborales.class);
                 intent.putExtras(bundle);
                 startActivity(v.getContext(), intent, bundle);
@@ -84,12 +82,12 @@ public class ListaOfertasLaboralesAdapter extends RecyclerView.Adapter<ListaOfer
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txt_id=itemView.findViewById(R.id.view_id);
-            txt_cargo=itemView.findViewById(R.id.view_cargo);
-            txt_descripcion=itemView.findViewById(R.id.txt_descripcion);
-            txt_area_conocimiento=itemView.findViewById(R.id.txt_area_conocimiento);
-            txt_salario=itemView.findViewById(R.id.txt_salario);
-            btn_verMas=itemView.findViewById(R.id.btn_verMas);
+            txt_id = itemView.findViewById(R.id.view_id);
+            txt_cargo = itemView.findViewById(R.id.view_cargo);
+            txt_descripcion = itemView.findViewById(R.id.txt_descripcion);
+            txt_area_conocimiento = itemView.findViewById(R.id.txt_area_conocimiento);
+            txt_salario = itemView.findViewById(R.id.txt_salario);
+            btn_verMas = itemView.findViewById(R.id.btn_verMas);
 
         }
     }
