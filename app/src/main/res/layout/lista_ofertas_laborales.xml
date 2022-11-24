@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="0dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="0dp"
+                android:orientation="horizontal">
 
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp">
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -33,58 +34,64 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
             <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Cargo:"/>
+                    android:text="Cargo:" />
+
             <TextView
                     android:id="@+id/view_cargo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Descripcion:"/>
-            <TextView
-                    android:id="@+id/txt_descripcion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="A Conocimiento:"/>
-            <TextView
-                    android:id="@+id/txt_area_conocimiento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
             <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Salario:"/>
+                    android:text="Descripcion:" />
+
+            <TextView
+                    android:id="@+id/txt_descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="A Conocimiento:" />
+
+            <TextView
+                    android:id="@+id/txt_area_conocimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Salario:" />
+
             <TextView
                     android:id="@+id/txt_salario"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -95,10 +102,17 @@
 
             <Button
                     android:id="@+id/btn_verMas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ver Mas" />
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:enabled="true"
+                    android:text="Ver Mas"
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:strokeColor="@color/material_on_background_emphasis_high_type"
+                    app:strokeWidth="2dp" />
+
 
         </LinearLayout>
 

@@ -39,30 +39,12 @@
                 android:id="@+id/ofertas_laborales"/>
     </LinearLayout>
 
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/linearLayout9">
-        <SearchView
-                android:hint="INGRESE SU BUSQUEDA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_Search"/>
-
-    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="100dp"
             android:id="@+id/recycler_view_razon_social"
-
-            tools:layout_editor_absoluteX="1dp"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9"/>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

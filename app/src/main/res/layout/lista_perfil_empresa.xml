@@ -1,99 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
 
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15dp">
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
             <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/id"/>
+                    android:text="@string/id" />
+
             <TextView
                     android:id="@+id/txt_id_empresa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
             <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/nombre_empresa"/>
+                    android:text="@string/nombre_empresa" />
+
             <TextView
                     android:id="@+id/txt_nombre_empresa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tipo_empresa"/>
-            <TextView
-                    android:id="@+id/view_tipo_empresa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Departamento"/>
-            <TextView
-                    android:id="@+id/txt_departamento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
             <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/ciudad"/>
+                    android:text="@string/tipo_empresa" />
+
+            <TextView
+                    android:id="@+id/view_tipo_empresa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Departamento" />
+
+            <TextView
+                    android:id="@+id/txt_departamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ciudad" />
+
             <TextView
                     android:id="@+id/txt_ciudad"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_height="wrap_content" />
         </LinearLayout>
 
 
         <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:layout_gravity="center">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
             <Button
                     android:id="@+id/btn_mas_detalles"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:enabled="true"
                     android:text="@string/mas_detalles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/material_on_background_emphasis_high_type"
+                    app:strokeColor="@color/material_on_background_emphasis_high_type"
+                    app:strokeWidth="2dp" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

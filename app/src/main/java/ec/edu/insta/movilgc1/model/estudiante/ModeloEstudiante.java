@@ -22,8 +22,8 @@ public class ModeloEstudiante extends Estudiante implements CrudGeneric<Estudian
     @Override
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String noSql = "INSERT INTO estudiante (cedula, nombres, apellidos, genero, fecha_nacimiento, ciudad, direccion," +
-                " estado_civil, ruta_imagen, url_imagen) VALUES ('" + getCedula() + "', '" + getNombres() + "', '"
+        String noSql = "INSERT INTO estudiante (id, cedula, nombres, apellidos, genero, fecha_nacimiento, ciudad, direccion," +
+                " estado_civil, ruta_imagen, url_imagen) VALUES ('"+getId()+"', '" + getCedula() + "', '" + getNombres() + "', '"
                 + getApellidos() + "', '" + getGenero() + "', '" + getFechaNacimiento() + "', '"
                 + getCiudad() + "', '" + getDireccion() + "', '" + getEstadoCivil() + "', '"
                 + getRutaImagen() + "', '" + getUrlImagen() + "')";

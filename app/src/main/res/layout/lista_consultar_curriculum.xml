@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" android:layout_margin="20dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -13,49 +15,60 @@
 
         <LinearLayout
                 android:id="@+id/linearlayaut"
-                android:layout_width="200dp"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-        >
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
             <TextView
                     android:id="@+id/view_ID_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-            />
+                    android:textAlignment="center"
+                    android:layout_gravity="center"/>
+
             <TextView
                     android:id="@+id/view_nombres_cv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content" />
+
             <TextView
                     android:id="@+id/view_direccion_alumno_cv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content" />
+
             <TextView
                     android:id="@+id/view_estado_civil_cv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-            />
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content" />
 
             <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:layout_gravity="center">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
                 <Button
                         android:id="@+id/btn_ver_mas"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="15dp"
+                        android:enabled="true"
                         android:text="Ver Mas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        app:strokeColor="@color/material_on_background_emphasis_high_type"
+                        app:strokeWidth="2dp" />
+
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-                android:id="@+id/img_foto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#f3f"
-        />
     </LinearLayout>
 
 </RelativeLayout>

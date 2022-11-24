@@ -26,7 +26,7 @@ public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer>
     @Override
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
-        String noSql = "INSERT INTO ofertas ( cargo, descripcion, area_conocimiento, salario, jornada, requisitos_academicos, experiencia, ubicacion, fecha_inicio, fecha_fin,empresa,ciudad,estado) VALUES ( '" + getCargo() + "', '" + getDescripcion() + "', '" + getArea_conocimiento() + "', '" + getSalario() + "', '" + getJornada() + "', '" + getRequisitos_academicos() + "', '" + getExperiencia() + "', '" + getUbicacion() + "', '" + getFecha_inicio() + "', '" + getFecha_fin() +"', '" + getEmpresa() +"', '" + getCiudad() +"', '" + getEstado() + "');";
+        String noSql = "INSERT INTO ofertas ( id, cargo, descripcion, area_conocimiento, salario, jornada, requisitos_academicos, experiencia, ubicacion, fecha_inicio, fecha_fin,empresa,ciudad,estado) VALUES ('"+getId()+"', '" + getCargo() + "', '" + getDescripcion() + "', '" + getArea_conocimiento() + "', '" + getSalario() + "', '" + getJornada() + "', '" + getRequisitos_academicos() + "', '" + getExperiencia() + "', '" + getUbicacion() + "', '" + getFecha_inicio() + "', '" + getFecha_fin() +"', '" + getEmpresa() +"', '" + getCiudad() +"', '" + getEstado() + "');";
         sqLiteOpenHelper.noQuery(noSql);
         sqLiteOpenHelper.close();
     }
