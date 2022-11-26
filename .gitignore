@@ -182,9 +182,6 @@ gen/
 .gradle/
 
 
-build/generated/*
-build/intermediates/*
-build/outputs/logs/*
 build/
 
 # Signing files
