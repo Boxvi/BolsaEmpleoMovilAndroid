@@ -18,6 +18,10 @@
 local.properties
 
 
+/build/generated/*
+/build/intermediates/*
+/build/tmp/*
+
 # Created by https://www.toptal.com/developers/gitignore/api/java,androidstudio,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,androidstudio,intellij
 
@@ -199,7 +203,6 @@ proguard/
 
 /*/local.properties
 /*/out
-/*/*/build
 /*/*/production
 captures/
 .navigation/
