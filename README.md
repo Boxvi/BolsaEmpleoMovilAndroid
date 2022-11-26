@@ -1,2 +1,2 @@
 # MOVIL
-- **APK:** [ISTA EMPLEO](https://github.com/Boxvi/archivos/tree/main/Movil/APK)
+- **APK:** [ISTA EMPLEO](https://github.com/Boxvi/movilgc1/tree/main/app/build/outputs/apk/debug)
