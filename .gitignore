@@ -164,7 +164,7 @@ replay_pid*
 # Covers files to be ignored for android development using Android Studio.
 
 # Built application files
-*.apk
+
 *.ap_
 *.aab
 
@@ -180,6 +180,11 @@ gen/
 # Gradle files
 .gradle
 .gradle/
+
+
+build/generated/*
+build/intermediates/*
+build/outputs/logs/*
 build/
 
 # Signing files
@@ -194,7 +199,7 @@ proguard/
 # Log Files
 
 # Android Studio
-/*/build/
+
 /*/local.properties
 /*/out
 /*/*/build
