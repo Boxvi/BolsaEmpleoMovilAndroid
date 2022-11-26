@@ -6,23 +6,18 @@ import java.util.ArrayList;
 
 import ec.edu.insta.movilgc1.dbtemp.SQLiteOpenHelper;
 import ec.edu.insta.movilgc1.model.CrudGeneric;
-
 public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer> {
     private SQLiteOpenHelper sqLiteOpenHelper;
     private Cursor cursor;
-
     public ModeloOferta() {
     }
-
     public ModeloOferta(int id, String cargo, String descripcion, String area_conocimiento, String salario, String jornada, String requisitos_academicos, String experiencia, String ubicacion, String fecha_inicio, String fecha_fin, String empresa, String ciudad, Boolean estado) {
         super(id, cargo, descripcion, area_conocimiento, salario, jornada, requisitos_academicos, experiencia, ubicacion, fecha_inicio, fecha_fin, empresa, ciudad, estado);
     }
-
     public ModeloOferta(SQLiteOpenHelper sqLiteOpenHelper, Cursor cursor) {
         this.sqLiteOpenHelper = sqLiteOpenHelper;
         this.cursor = cursor;
     }
-
     @Override
     public void create(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
@@ -30,16 +25,12 @@ public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer>
         sqLiteOpenHelper.noQuery(noSql);
         sqLiteOpenHelper.close();
     }
-
     @Override
     public ArrayList<Oferta> read(Context context) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
         String sql = "SELECT * FROM ofertas";
-
         cursor = sqLiteOpenHelper.query(sql);
-
         ArrayList<Oferta> ofertaArrayList = new ArrayList<>();
-
         while (cursor.moveToNext()) {
             Oferta oferta = new Oferta();
             oferta.setId(cursor.getInt(0));
@@ -56,16 +47,10 @@ public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer>
             oferta.setFecha_fin(cursor.getString(11));
             oferta.setEmpresa(cursor.getString(12));
             oferta.setCiudad(cursor.getString(13));
-
-
             ofertaArrayList.add(oferta);
-
         }
-
         return ofertaArrayList;
-
     }
-
     @Override
     public void update(Context context, Integer integer) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
@@ -73,19 +58,15 @@ public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer>
         sqLiteOpenHelper.noQuery(noSql);
         sqLiteOpenHelper.close();
     }
-
     @Override
     public void delete(Context context, Integer integer) {
-
     }
-
     @Override
     public Oferta buscarPorId(Context context, Integer integer) {
         sqLiteOpenHelper = new SQLiteOpenHelper(context);
         String sql = "SELECT * FROM ofertas WHERE id = " + integer + ";";
         cursor = sqLiteOpenHelper.query(sql);
         Oferta oferta = new Oferta();
-
         if (cursor.moveToNext()) {
             oferta.setId(cursor.getInt(0));
             oferta.setCargo(cursor.getString(2));
@@ -102,9 +83,7 @@ public class ModeloOferta extends Oferta implements CrudGeneric<Oferta, Integer>
             oferta.setCiudad(cursor.getString(13));
             oferta.setEstado(cursor.getInt(14) == 1);
         }
-
         sqLiteOpenHelper.close();
-
         return oferta;
     }
 }

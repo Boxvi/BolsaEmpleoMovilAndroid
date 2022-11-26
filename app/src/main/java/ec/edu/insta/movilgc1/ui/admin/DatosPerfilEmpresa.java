@@ -9,40 +9,36 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.ui.MainActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DatosPerfilEmpresa extends AppCompatActivity {
-
-
     private TextView view_ID, view_departamento, view_ciudad, view_nombres_empresa, view_ruc, view_tipo_empresa, view_direccion, view_sector_empresa, view_razon_social, view_correo_empresa, view_telefono_empresa;
-
     private ImageButton btn_regresar_pefil_empresa;
-
     private Button btn_activar, btn_desactivar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_perfil_empresa);
-
         view_ID = findViewById(R.id.view_ID);
         Bundle bundle = getIntent().getExtras();
         view_ID.setText(bundle.getString("id_empresa"));
-
         perfilEmpresas(Integer.parseInt(view_ID.getText().toString()));
-
         btn_regresar_pefil_empresa = findViewById(R.id.btn_regresar_pefil_empresa);
         btn_regresar_pefil_empresa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,10 +46,8 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                 extracted();
             }
         });
-
         btn_activar = findViewById(R.id.btn_activar);
         btn_desactivar = findViewById(R.id.btn_desactivar);
-
         btn_activar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +55,6 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                 extracted();
             }
         });
-
         btn_desactivar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,8 +62,6 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                 extracted();
             }
         });
-
-
     }
 
     private void extracted() {
@@ -79,13 +70,10 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
         finish();
     }
 
-
     public void goPerfilEmpresa(View view) {
         Intent intent = new Intent(this, InicioAdminBusqueda.class);
         startActivity(intent);
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,11 +93,8 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
     }
 
     public void perfilEmpresas(int id) {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/empresas/" + id;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -123,7 +108,6 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     view_correo_empresa = findViewById(R.id.view_correo_empresa);
                     view_departamento = findViewById(R.id.view_departamento);
                     view_razon_social = findViewById(R.id.view_razon_social);
-
                     view_nombres_empresa.setText(response.getString("nombre"));
                     view_ruc.setText(response.getString("ruc"));
                     view_tipo_empresa.setText(response.getString("tipoEmpresa"));
@@ -132,26 +116,11 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     view_ciudad.setText(
                             response.getJSONObject("ciudad").getString("nombre") + ", Provincia " +
                                     response.getJSONObject("ciudad").getJSONObject("provincia").getString("nombre"));
-
-
                     view_razon_social.setText(response.getString("razonSocial"));
                     view_correo_empresa.setText(response.getString("sitioWeb"));
                     view_departamento.setText(response.getString("departamento"));
-
-
-
-                    /*
-                   // view_sector_empresa.setText(response.getJSONObject("sectorEmpresarial").getString("nombre"));
-                    view_ciudad.setText(
-                            response.getJSONObject("ciudad").getString("nombre") + ", Provincia " +
-                                    response.getJSONObject("ciudad").getJSONObject("provincia").getString("nombre"));
-
-*/
-
                     btn_activar = findViewById(R.id.btn_activar);
                     btn_desactivar = findViewById(R.id.btn_desactivar);
-
-
                     if (response.getJSONObject("usuario").getBoolean("estado") == true) {
                         btn_activar.setVisibility(View.GONE);
                         btn_desactivar.setVisibility(View.VISIBLE);
@@ -159,7 +128,6 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                         btn_activar.setVisibility(View.VISIBLE);
                         btn_desactivar.setVisibility(View.GONE);
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -170,33 +138,23 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                 Toast.makeText(DatosPerfilEmpresa.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
         requestQueue.add(jsonObjectRequest);
-
     }
-
     public void modificarEstado(int id, Boolean estado) {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/empresas/" + id;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
-
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     String URLPUT = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios/" + response.getJSONObject("usuario").getInt("id");
-
                     JSONObject jsonObject = new JSONObject();
-
                     jsonObject.put("username", response.getJSONObject("usuario").getString("username"));
                     jsonObject.put("email", response.getJSONObject("usuario").getString("email"));
                     jsonObject.put("password", "1234");
                     jsonObject.put("telefono", response.getJSONObject("usuario").getString("telefono"));
                     jsonObject.put("estado", estado);
                     jsonObject.put("rol", response.getJSONObject("usuario").getJSONObject("rol").getString("nombre"));
-
                     JsonObjectRequest jsonObjectRequest1 = new JsonObjectRequest(Request.Method.PUT, URLPUT, jsonObject, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -209,7 +167,7 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(DatosPerfilEmpresa.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DatosPerfilEmpresa.this, "Error al modificar: " + error.toString(), Toast.LENGTH_SHORT).show();
                         }
                     });
                     requestQueue.add(jsonObjectRequest1);
@@ -220,12 +178,9 @@ public class DatosPerfilEmpresa extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(DatosPerfilEmpresa.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DatosPerfilEmpresa.this, "Error al modificar: " + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
-
-
     }
 }

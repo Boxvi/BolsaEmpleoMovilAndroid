@@ -26,26 +26,20 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 public class RazonSocial extends AppCompatActivity implements SearchView.OnQueryTextListener {
-
     private RecyclerView recyclerView;
     private SearchView txt_Search;
     private ListaRazonSocialAdapter listaRazonSocialAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_razon_social);
-
         verOfertas();
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cerrar_sesion) {
@@ -56,28 +50,21 @@ public class RazonSocial extends AppCompatActivity implements SearchView.OnQuery
         }
         return super.onOptionsItemSelected(item);
     }
-
-    //ir a inicio admin busqeuda
     public void goInicioAdminBusqueda(View view) {
         Intent intent = new Intent(this, InicioAdminBusqueda.class);
         startActivity(intent);
         finish();
     }
-
     public void verOfertas() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ofertas";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         ArrayList<RazonSocialC> listaOfertas = new ArrayList<>();
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         RazonSocialC razonSocialC = new RazonSocialC();
-
                         razonSocialC.setId(response.getJSONObject(i).getInt("id"));
                         System.out.println("id: " + razonSocialC.getId());
                         razonSocialC.setCiudad(response.getJSONObject(i).getString("ciudad"));
@@ -85,38 +72,28 @@ public class RazonSocial extends AppCompatActivity implements SearchView.OnQuery
                         razonSocialC.setSalario(response.getJSONObject(i).getString("salario"));
                         razonSocialC.setCargo(response.getJSONObject(i).getString("cargo"));
                         razonSocialC.setCiudad(response.getJSONObject(i).getString("ciudad"));
-
                         listaOfertas.add(razonSocialC);
                     }
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RazonSocial.this);
-
                 linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
                 recyclerView = findViewById(R.id.recycler_view_razon_social);
                 recyclerView.setLayoutManager(linearLayoutManager);
-
                 listaRazonSocialAdapter = new ListaRazonSocialAdapter(listaOfertas);
                 recyclerView.setAdapter(listaRazonSocialAdapter);
-
             }
         }, error -> {
-            System.out.println("Error: " + error.getMessage());
+            System.out.println("Error al mostrar: " + error.getMessage());
         });
         requestQueue.add(jsonArrayRequest);
-
     }
-
-
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-
     @Override
     public boolean onQueryTextChange(String newText) {
         listaRazonSocialAdapter.filtrado(newText);

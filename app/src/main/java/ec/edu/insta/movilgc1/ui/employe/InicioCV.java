@@ -23,32 +23,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class InicioCV extends AppCompatActivity {
-
-
     private ImageButton btn_regresar_pefil_empresa_cv;
-
     private TextView view_cv_ID, view_cv_nombres_apellidos, view_cv_fecha_nacimiento, view_cv_cedula_ciudadanina, view_cv_username,
             view_cv_direccion, view_cv_correo, view_cv_telefono, view_cv_estado_civil, view_cv_rol, view_cv_genero, view_cv_ciudad;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_cv);
-
         Bundle bundle = getIntent().getExtras();
-
         view_cv_ID = findViewById(R.id.view_cv_ID);
         view_cv_username = findViewById(R.id.view_cv_username);
-
         view_cv_ID.setText(bundle.getString("username_id"));
-
         view_cv_username.setText(bundle.getString("username_estudiante"));
-
-
-        //curriculimVitae(view_cv_ID.getText().toString());
         dameEstudiantes();
-
         btn_regresar_pefil_empresa_cv = findViewById(R.id.btn_regresar_pefil_empresa_cv);
         btn_regresar_pefil_empresa_cv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,32 +46,21 @@ public class InicioCV extends AppCompatActivity {
                 bundle.putString("username_estudiante", view_cv_username.getText().toString());
                 intent.putExtras(bundle);
                 startActivity(intent);
-
                 finish();
             }
         });
-
     }
-
     private void dameEstudiantes() {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, response -> {
             try {
                 for (int i = 0; i < response.length(); i++) {
-
-                   // System.out.println("response: " + response.getJSONObject(i).getString("id"));
                     System.out.println("response: " + response.getJSONObject(i).getString("username"));
                     System.out.println(view_cv_username.getText().toString());
                     if (view_cv_username.getText().toString().equals(response.getJSONObject(i).getString("username"))) {
-
-
                         String URL2 = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + response.getJSONObject(i).getString("id");
-
                         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
-
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null, response1 -> {
                             try {
                                 view_cv_nombres_apellidos = findViewById(R.id.view_cv_nombres_apellidos);
@@ -98,10 +74,8 @@ public class InicioCV extends AppCompatActivity {
                                 view_cv_ciudad = findViewById(R.id.view_cv_ciudad);
                                 view_cv_username = findViewById(R.id.view_cv_username);
                                 view_cv_correo = findViewById(R.id.view_cv_correo);
-
                                 view_cv_nombres_apellidos.setText(response1.getString("nombres") + " " + response1.getString("apellidos"));
                                 view_cv_fecha_nacimiento.setText(response1.get("fechaNacimiento").toString());
-                                //view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
                                 view_cv_cedula_ciudadanina.setText(response1.getString("cedula"));
                                 view_cv_direccion.setText(response1.getString("direccion"));
                                 view_cv_telefono.setText(response1.getJSONObject("usuario").getString("telefono"));
@@ -110,10 +84,8 @@ public class InicioCV extends AppCompatActivity {
                                 view_cv_genero.setText(response1.getString("genero"));
                                 view_cv_ciudad.setText(response1.getJSONObject("ciudad").getString("nombre"));
                                 view_cv_correo.setText(response1.getJSONObject("usuario").getString("email"));
-
-
                             } catch (Exception e) {
-                                Toast.makeText(InicioCV.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(InicioCV.this, "Error al mostrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }, error -> {
                             System.out.println("error: " + error);
@@ -124,21 +96,14 @@ public class InicioCV extends AppCompatActivity {
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-
         }, error -> {
-            System.out.println("error: " + error);
+            System.out.println("Error al mostrar: " + error);
         });
         requestQueue.add(jsonArrayRequest);
-
     }
-
-
     private void curriculimVitae(String parseInt) {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + parseInt;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -154,10 +119,8 @@ public class InicioCV extends AppCompatActivity {
                     view_cv_ciudad = findViewById(R.id.view_cv_ciudad);
                     view_cv_username = findViewById(R.id.view_cv_username);
                     view_cv_correo = findViewById(R.id.view_cv_correo);
-
                     view_cv_nombres_apellidos.setText(response.getString("nombres") + " " + response.getString("apellidos"));
                     view_cv_fecha_nacimiento.setText(response.get("fechaNacimiento").toString());
-                    //view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
                     view_cv_cedula_ciudadanina.setText(response.getString("cedula"));
                     view_cv_direccion.setText(response.getString("direccion"));
                     view_cv_telefono.setText(response.getJSONObject("usuario").getString("telefono"));
@@ -166,30 +129,23 @@ public class InicioCV extends AppCompatActivity {
                     view_cv_genero.setText(response.getString("genero"));
                     view_cv_ciudad.setText(response.getJSONObject("ciudad").getString("nombre"));
                     view_cv_correo.setText(response.getJSONObject("usuario").getString("email"));
-
-
                 } catch (Exception e) {
-                    Toast.makeText(InicioCV.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InicioCV.this, "Error al mostrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(InicioCV.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(InicioCV.this, "Error al mostrar: " + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonObjectRequest);
-
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cerrar_sesion) {
@@ -200,5 +156,4 @@ public class InicioCV extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

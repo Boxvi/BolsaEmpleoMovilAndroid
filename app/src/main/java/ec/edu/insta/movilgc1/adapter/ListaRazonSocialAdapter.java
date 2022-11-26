@@ -1,5 +1,4 @@
 package ec.edu.insta.movilgc1.adapter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,20 +16,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import static androidx.core.content.ContextCompat.startActivity;
-
 public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSocialAdapter.ViewHolder> {
-
     private ArrayList<RazonSocialC> listaRazonSocial;
     private ArrayList<RazonSocialC> listaRazonSocialOriginal;
-
     Bundle bundle = new Bundle();
-
     public ListaRazonSocialAdapter(ArrayList<RazonSocialC> listaRazonSocial) {
         this.listaRazonSocial = listaRazonSocial;
         listaRazonSocialOriginal = new ArrayList<>();
         listaRazonSocialOriginal.addAll(listaRazonSocial);
     }
-
     @NonNull
     @NotNull
     @Override
@@ -38,7 +32,6 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_razon_social, null, false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.view_rs_id.setText(listaRazonSocial.get(position).getId() + "");
@@ -46,12 +39,10 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
         holder.view_rs_salario.setText(listaRazonSocial.get(position).getSalario());
         holder.view_rs_cargo.setText(listaRazonSocial.get(position).getCargo());
         holder.view_rs_ubicacion.setText(listaRazonSocial.get(position).getCiudad());
-
         holder.btn_ver_mas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bundle.putString("id_rs", listaRazonSocial.get(position).getId() + "");
-
                 Intent intent = new Intent(v.getContext(), AdminBusqueda.class);
                 intent.putExtras(bundle);
                 startActivity(v.getContext(), intent, null);
@@ -74,17 +65,13 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
             }
         }
     }
-
     @Override
     public int getItemCount() {
         return listaRazonSocial.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         private TextView view_rs_id, view_rs_nombre, view_rs_salario, view_rs_cargo, view_rs_ubicacion;
         Button btn_ver_mas;
-
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             view_rs_id = itemView.findViewById(R.id.view_rs_id);
@@ -92,10 +79,7 @@ public class ListaRazonSocialAdapter extends RecyclerView.Adapter<ListaRazonSoci
             view_rs_salario = itemView.findViewById(R.id.view_rs_salario);
             view_rs_cargo = itemView.findViewById(R.id.view_rs_cargo);
             view_rs_ubicacion = itemView.findViewById(R.id.view_rs_ubicacion);
-
             btn_ver_mas = itemView.findViewById(R.id.btn_ver_mas);
-
-
         }
     }
 

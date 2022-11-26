@@ -19,19 +19,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DatosOfertasLaborales extends AppCompatActivity {
-
     private TextView view_id_labores, view_cargo, view_descripcion, view_areaConocimiento, view_salario, view_jornada, view_requisitos, view_experiencia, view_ubicaci, view_fechaInicio, view_fechafin, view_empresa, view_ciudad_laborales;
-
     private String cedula;
     private Button btn_boton;
-
     private String usuario, idusuario;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_ofertas_laborales);
-
         view_id_labores = findViewById(R.id.view_id_labore);
         Bundle bundle = getIntent().getExtras();
         view_id_labores.setText(bundle.getString("idOferta"));
@@ -41,9 +36,7 @@ public class DatosOfertasLaborales extends AppCompatActivity {
         getEstudiante(idusuario);
         cedula = bundle.getString("cedula");
         PerfilOfertas(Integer.parseInt(view_id_labores.getText().toString()));
-
     }
-
     public void getEstudiante(String id) {
         System.out.println("hola");
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios/" + id;
@@ -52,11 +45,9 @@ public class DatosOfertasLaborales extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 String URLget = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/";
-
                 JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URLget, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response1) {
-
                         for (int i = 0; i < response1.length(); i++) {
                             try {
                                 JSONObject jsonObject = new JSONObject(response1.get(i).toString());
@@ -77,7 +68,7 @@ public class DatosOfertasLaborales extends AppCompatActivity {
                                     });
                                     break;
                                 } else {
-                                    System.out.println("no soy");
+                                    System.out.println("No se encontro cedula");
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -102,16 +93,12 @@ public class DatosOfertasLaborales extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
     }
-
     public void postPostulacion(int id, String cedulaPost) throws JSONException {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ofertas/" + id;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
                 String URLPOST = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/postulaciones";
                 JSONObject jsonObject = new JSONObject();
                 try {
@@ -132,7 +119,7 @@ public class DatosOfertasLaborales extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(DatosOfertasLaborales.this, "Cliente ya aplicado " + error.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DatosOfertasLaborales.this, "Cliente ya aplicado ", Toast.LENGTH_SHORT).show();
                             System.out.println(error);
                         }
                     });
@@ -140,25 +127,18 @@ public class DatosOfertasLaborales extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DatosOfertasLaborales.this, "Cliente ya aplicado " + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DatosOfertasLaborales.this, "Cliente ya aplicado ", Toast.LENGTH_SHORT).show();
             }
         });
-
         requestQueue.add(jsonObjectRequest);
     }
-
     public void PerfilOfertas(int id) {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ofertas/" + id;
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -187,8 +167,6 @@ public class DatosOfertasLaborales extends AppCompatActivity {
                     view_fechafin.setText(response.getString("fecha_fin"));
                     view_empresa.setText(response.getJSONObject("empresa").getString("nombre"));
                     view_ciudad_laborales.setText(response.getJSONObject("ciudad").getString("nombre"));
-
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -196,12 +174,9 @@ public class DatosOfertasLaborales extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DatosOfertasLaborales.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DatosOfertasLaborales.this, "Error al mostrar", Toast.LENGTH_SHORT).show();
             }
         });
-
         requestQueue.add(jsonObjectRequest);
-
     }
-
 }

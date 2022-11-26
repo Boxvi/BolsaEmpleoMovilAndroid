@@ -5,13 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.model.empresa.Empresa;
 import ec.edu.insta.movilgc1.model.empresa.ModeloEmpresa;
@@ -21,6 +24,7 @@ import ec.edu.insta.movilgc1.model.ofertas.ModeloOferta;
 import ec.edu.insta.movilgc1.model.ofertas.Oferta;
 import ec.edu.insta.movilgc1.model.usuario.ModeloUsuario;
 import ec.edu.insta.movilgc1.model.usuario.Usuario;
+
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,10 +32,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-
     private Button btn_busco_empleo, btn_eres_admin;
-
     private Intent intent;
 
     @Override
@@ -39,14 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cargarDatosUsuario();
-
         cargarDatosPerfilEmpresa();
         cargarConsultarCurriculum();
         cargarDatosOfertas();
-
         btn_busco_empleo = findViewById(R.id.btn_busco_empleo);
         btn_eres_admin = findViewById(R.id.btn_eres_admin);
-
         btn_busco_empleo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, LoginGeneral.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
-
             }
         });
 
@@ -71,19 +68,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     public void cargarDatosUsuario() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/usuarios";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     ModeloUsuario modeloUsuario = new ModeloUsuario();
-
                     ArrayList<Usuario> usuarioArrayList = modeloUsuario.read(MainActivity.this);
-
                     if (usuarioArrayList == null) {
                         for (int i = usuarioArrayList.size(); i < response.length(); i++) {
                             modeloUsuario = getModeloUsuario(response, i);
@@ -100,9 +93,7 @@ public class MainActivity extends AppCompatActivity {
                             modeloUsuario.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
                         }
                         Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
-
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -132,19 +123,15 @@ public class MainActivity extends AppCompatActivity {
         return modeloUsuario;
     }
 
-
     public void cargarDatosPerfilEmpresa() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/empresas";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     ModeloEmpresa modeloEmpresa = new ModeloEmpresa();
-
                     ArrayList<Empresa> usuarioArrayList = modeloEmpresa.read(MainActivity.this);
-
                     if (usuarioArrayList == null) {
                         for (int i = usuarioArrayList.size(); i < response.length(); i++) {
                             modeloEmpresa = getModeloEmpresa(response, i);
@@ -161,9 +148,7 @@ public class MainActivity extends AppCompatActivity {
                             modeloEmpresa.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
                         }
                         Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
-
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -175,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonArrayRequest);
-
     }
 
     @NotNull
@@ -193,24 +177,18 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("direccion"),
                 response.getJSONObject(i).getString("sitioWeb"),
                 false);
-
         return modeloEmpresa;
     }
 
     public void cargarConsultarCurriculum() {
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
-
                     ArrayList<Estudiante> usuarioArrayList = modeloEstudiante.read(MainActivity.this);
-
                     if (usuarioArrayList == null) {
                         for (int i = usuarioArrayList.size(); i < response.length(); i++) {
                             modeloEstudiante = getModeloEstudiante(response, i);
@@ -227,28 +205,20 @@ public class MainActivity extends AppCompatActivity {
                             modeloEstudiante.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
                         }
                         Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
-
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
         requestQueue.add(jsonArrayRequest);
-
     }
-
     @NotNull
     private ModeloEstudiante getModeloEstudiante(JSONArray response, int i) throws JSONException {
-
         ModeloEstudiante modeloEstudiante;
         modeloEstudiante = new ModeloEstudiante(
                 response.getJSONObject(i).getInt("id"),
@@ -263,29 +233,24 @@ public class MainActivity extends AppCompatActivity {
                 response.getJSONObject(i).getString("rutaImagen"),
                 response.getJSONObject(i).getString("urlImagen"),
                 true);
-
         return modeloEstudiante;
-
     }
 
     public void cargarDatosOfertas() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ofertas";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     ModeloOferta modeloOferta = new ModeloOferta();
-
                     ArrayList<Oferta> ofertaArrayList = modeloOferta.read(MainActivity.this);
-
                     if (ofertaArrayList == null) {
                         for (int i = ofertaArrayList.size(); i < response.length(); i++) {
                             modeloOferta = getModeloOferta(response, i);
                             modeloOferta.create(MainActivity.this);
                         }
-                        Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOOOOOOOOOOOOOOS", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "DATOS ACTUALIZADOS", Toast.LENGTH_SHORT).show();
                     } else {
                         for (int i = ofertaArrayList.size(); i < response.length(); i++) {
                             modeloOferta = getModeloOferta(response, i);
@@ -295,10 +260,8 @@ public class MainActivity extends AppCompatActivity {
                             modeloOferta = getModeloOferta(response, i);
                             modeloOferta.update(MainActivity.this, response.getJSONObject(i).getInt("id"));
                         }
-                        Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOOOOOOOOOOOOOOOOS", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(MainActivity.this, "DATOS SINCRONIZADOS", Toast.LENGTH_SHORT).show();
                     }
-
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -306,11 +269,10 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "ERROR AL SINCRONIZAR " + error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonArrayRequest);
-
     }
 
     @NotNull

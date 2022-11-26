@@ -22,53 +22,40 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class RegistroPerfilEmpleado extends AppCompatActivity {
-
     private Spinner spinnerGenero, spinnerCiudad, spinerEstadoCivil;
     private TextView view_username_r;
     private EditText editTextCedula, editTextNombres, editTextApellidos, editTextDate, editTextDireccion;
-
     private Button btn_registrare;
-
     private ImageButton btn_regresar_login;
-
     ModeloEstudiante modeloEstudiante = new ModeloEstudiante();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_perfil_empleado);
-
         spinnerGenero = findViewById(R.id.spinnerGenero);
         spinnerCiudad = findViewById(R.id.spinnerCiudad);
         spinerEstadoCivil = findViewById(R.id.spinnerEstadoCivil);
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.generos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGenero.setAdapter(adapter);
-
         ArrayAdapter<CharSequence> adapter2 = dameCiudades();
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCiudad.setAdapter(adapter2);
-
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.estadoCivil, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinerEstadoCivil.setAdapter(adapter3);
-
         view_username_r = findViewById(R.id.view_username_r);
         Bundle bundle = getIntent().getExtras();
         view_username_r.setText(bundle.getString("username"));
-
         editTextCedula = findViewById(R.id.editTextCedula);
         editTextNombres = findViewById(R.id.editTextNombres);
         editTextApellidos = findViewById(R.id.editTextApellidos);
         editTextDate = findViewById(R.id.editTextDate);
         editTextDireccion = findViewById(R.id.editTextDireccion);
-
         btn_registrare = findViewById(R.id.btn_registrarse);
         btn_registrare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (editTextCedula.getText().toString().isEmpty() || editTextNombres.getText().toString().isEmpty()
                         || editTextApellidos.getText().toString().isEmpty() || editTextDate.getText().toString().isEmpty()
                         || editTextDireccion.getText().toString().isEmpty() || spinnerGenero.getSelectedItem().toString().isEmpty()
@@ -82,11 +69,8 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
                             editTextNombres.getText().toString(), editTextApellidos.getText().toString(), spinnerGenero.getSelectedItem().toString(),
                             editTextDate.getText().toString(), spinnerCiudad.getSelectedItem().toString(), editTextDireccion.getText().toString(), spinerEstadoCivil.getSelectedItem().toString(), null, null);
                 }
-
-
             }
         });
-
         btn_regresar_login = findViewById(R.id.btn_regresar_login);
         btn_regresar_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,12 +79,9 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
     public void camposVacios() {
         ArrayList<Estudiante> estudianteArrayList = modeloEstudiante.read(RegistroPerfilEmpleado.this);
-
         for (Estudiante estudiante : estudianteArrayList) {
             if (estudiante.getCedula().equals(editTextCedula.getText().toString())) {
                 Toast.makeText(this, "Ya existe un estudiante con esa cédula", Toast.LENGTH_SHORT).show();
@@ -108,10 +89,7 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
                 editTextCedula.requestFocus();
                 return;
             }
-
         }
-
-
         if (editTextCedula.getText().toString().isEmpty()) {
             editTextCedula.setError("Ingrese su cedula");
             editTextCedula.requestFocus();
@@ -154,11 +132,8 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
 
     private ArrayAdapter<CharSequence> dameCiudades() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/ciudades";
-
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
-
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -179,24 +154,18 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
         return adapter;
     }
-
     private void registroEstudiante(String username, String cedula, String nombres, String apellidos, String genero,
                                     String fechaNacimiento, String ciudad, String direccion, String estadoCivil,
                                     String rutaImagen, String urlImagen) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
-
         JSONObject jsonBody = new JSONObject();
-
         try {
-
             jsonBody.put("id", "0");
             jsonBody.put("username", username);
             jsonBody.put("cedula", cedula);
             jsonBody.put("nombres", nombres);
             jsonBody.put("apellidos", apellidos);
-
             switch (genero) {
                 case "Masculino":
                     jsonBody.put("genero", "M");
@@ -205,17 +174,13 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
                     jsonBody.put("genero", "F");
                     break;
             }
-
-
             jsonBody.put("fechaNacimiento", fechaNacimiento);
             jsonBody.put("ciudad", ciudad);
             jsonBody.put("direccion", direccion);
             jsonBody.put("estadoCivil", estadoCivil);
             jsonBody.put("rutaImagen", rutaImagen);
             jsonBody.put("urlImagen", urlImagen);
-
             System.out.println(jsonBody);
-
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonBody, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -230,10 +195,7 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
                     System.out.println(error);
                 }
             });
-
             requestQueue.add(jsonObjectRequest);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,5 +1,4 @@
 package ec.edu.insta.movilgc1.adapter;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,20 +16,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import static androidx.core.content.ContextCompat.startActivity;
-
 public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaConsultarCurriculumAdapter.ViewHolder> {
-
     private ArrayList<Estudiante> listaConsultarCurriculum;
     private ArrayList<Estudiante> listaConsultarCurriculumOriginal;
-
     Bundle bundle = new Bundle();
-
     public ListaConsultarCurriculumAdapter(ArrayList<Estudiante> listaConsultarCurriculum) {
         this.listaConsultarCurriculum = listaConsultarCurriculum;
         listaConsultarCurriculumOriginal = new ArrayList<>();
         listaConsultarCurriculumOriginal.addAll(listaConsultarCurriculum);
     }
-
     @NonNull
     @NotNull
     @Override
@@ -38,7 +32,6 @@ public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaC
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_consultar_curriculum, null, false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.view_ID_cv.setText(listaConsultarCurriculum.get(position).getId() + "");
@@ -58,7 +51,6 @@ public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaC
         });
 
     }
-
     public void filtrado(String txt_Search){
         txt_Search = txt_Search.toLowerCase();
         listaConsultarCurriculum.clear();
@@ -74,28 +66,20 @@ public class ListaConsultarCurriculumAdapter extends RecyclerView.Adapter<ListaC
         notifyDataSetChanged();
 
     }
-
     @Override
     public int getItemCount() {
         return listaConsultarCurriculum.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         private TextView view_ID_cv, view_nombres_cv, view_direcion_alumno_cv, view_estado_civil_cv;
         private Button btn_ver_mas;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             view_ID_cv = itemView.findViewById(R.id.view_ID_cv);
             view_nombres_cv = itemView.findViewById(R.id.view_nombres_cv);
             view_direcion_alumno_cv = itemView.findViewById(R.id.view_direccion_alumno_cv);
             view_estado_civil_cv = itemView.findViewById(R.id.view_estado_civil_cv);
-
             btn_ver_mas = itemView.findViewById(R.id.btn_ver_mas);
-
-
         }
     }
 }
