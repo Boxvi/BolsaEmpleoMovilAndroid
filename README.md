@@ -11,7 +11,7 @@
 - ADMINISTRADOR
 - **USUARIO: _BORIS_**
 - **CONTRASENA: 1234** 
-
+- ** **
 - EMPLEADO
 - **USUARIO: boxvi**
 - **CONTRASENA: 1234**
