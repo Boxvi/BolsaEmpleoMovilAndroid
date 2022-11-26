@@ -21,6 +21,7 @@ local.properties
 app/build/generated/*
 app/build/intermediates/*
 app/build/tmp/*
+app/build/outputs/logs/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,androidstudio,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,androidstudio,intellij
