@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ISTA EMPLEO</string>
     <string name="curriculum_vitae">Curriculum Vitae</string>
-    <string name="mensaje_informativo">Para una mejor visualizacion visite nuestra pagina web</string>
+    <string name="mensaje_informativo">Para una mejor visualización visite nuestra página web</string>
     <string name="datos_personales">DATOS PERSONALES</string>
     <string name="nombres_apellidos">Nombres y Apellidos:</string>
     <string name="fecha_nacimiento">Fecha de Nacimiento:</string>

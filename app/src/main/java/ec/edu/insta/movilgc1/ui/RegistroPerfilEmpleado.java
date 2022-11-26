@@ -184,7 +184,7 @@ public class RegistroPerfilEmpleado extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonBody, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(RegistroPerfilEmpleado.this, "SUS DATOS SERAN VALIDADOS POR UN ADMINISTRADOR PARA QUE PUEDE USAR EL APLICATIVO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroPerfilEmpleado.this, "SUS DATOS SERAN VALIDADOS POR UN ADMINISTRADOR PARA QUE PUEDA USAR EL APLICATIVO", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegistroPerfilEmpleado.this, MainActivity.class);
                     startActivity(intent);
                     finish();

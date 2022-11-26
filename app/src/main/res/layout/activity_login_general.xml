@@ -82,14 +82,18 @@
                 app:hintTextColor="@color/material_on_background_emphasis_high_type"
                 app:helperTextEnabled="true"
                 app:helperText="INGRESE SU CONTRASENA"
+                app:endIconMode="password_toggle"
 
         >
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:id="@+id/txt_password"
             />
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
         <LinearLayout
@@ -141,33 +145,3 @@
                 android:id="@+id/mensaje_informativo"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <!--
-                <EditText
-                        android:id="@+id/txt_username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/usuario"
-                        android:inputType="textEmailAddress"
-                        android:selectAllOnFocus="true"
-
-
-                />
-
-                style="?attr/materialButtonOutlinedStyle"
-                        app:strokeWidth="2dp"
-                        app:strokeColor="@color/material_on_background_emphasis_high_type"
-                        android:textColor="@color/material_on_background_emphasis_high_type"
-                        app:iconTint="@color/material_on_background_emphasis_high_type"
-
-
-
-                <EditText
-                        android:id="@+id/txt_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:hint="@string/contrasena"
-                        android:password="true"
-                        tools:ignore="Deprecated"/>-->
