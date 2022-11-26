@@ -1,4 +1,0 @@
-ec/edu/insta/movilgc1/ExampleInstrumentedTest.java
- ec.edu.insta.movilgc1.ExampleInstrumentedTest
-ec/edu/insta/movilgc1/test/BuildConfig.java
- ec.edu.insta.movilgc1.test.BuildConfig
