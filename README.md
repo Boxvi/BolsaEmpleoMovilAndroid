@@ -9,7 +9,7 @@
 
 # DATOS PARA TESTEOS
 - ADMINISTRADOR
-- **USUARIO: _BORIS_**
+- **USUARIO: admin_boris**
 - **CONTRASENA: 1234** 
 - ** **
 - EMPLEADO
