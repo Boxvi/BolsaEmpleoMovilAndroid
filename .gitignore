@@ -11,12 +11,16 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 .DS_Store
-/build
+
 /captures
 .externalNativeBuild
 .cxx
 local.properties
 
+
+app/build/generated/*
+app/build/intermediates/*
+app/build/tmp/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,androidstudio,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,androidstudio,intellij
@@ -182,7 +186,7 @@ gen/
 .gradle/
 
 
-build/
+
 
 # Signing files
 .signing/
@@ -199,7 +203,6 @@ proguard/
 
 /*/local.properties
 /*/out
-/*/*/build
 /*/*/production
 captures/
 .navigation/
