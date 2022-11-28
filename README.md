@@ -8,10 +8,15 @@
 
 
 # DATOS PARA TESTEOS
-- ADMINISTRADOR
-- **USUARIO: admin_boris**
-- **CONTRASENA: 1234** 
-- ** **
-- EMPLEADO
-- **USUARIO: boxvi**
-- **CONTRASENA: 1234**
+# Credenciales
+1) ADMINISTRADOR
+- user: _BORIS_
+- pass: 1234
+#
+- user: admin_boris
+- pass: 1234
+
+#
+3) EMPLEADO
+- user: boxvi
+- pass: 1234
