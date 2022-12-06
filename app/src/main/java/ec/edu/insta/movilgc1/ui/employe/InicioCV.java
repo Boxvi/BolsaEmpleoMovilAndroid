@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -26,6 +28,9 @@ public class InicioCV extends AppCompatActivity {
     private ImageButton btn_regresar_pefil_empresa_cv;
     private TextView view_cv_ID, view_cv_nombres_apellidos, view_cv_fecha_nacimiento, view_cv_cedula_ciudadanina, view_cv_username,
             view_cv_direccion, view_cv_correo, view_cv_telefono, view_cv_estado_civil, view_cv_rol, view_cv_genero, view_cv_ciudad;
+
+    private ImageView imgPersona;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,7 @@ public class InicioCV extends AppCompatActivity {
             }
         });
     }
+
     private void dameEstudiantes() {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -74,6 +80,9 @@ public class InicioCV extends AppCompatActivity {
                                 view_cv_ciudad = findViewById(R.id.view_cv_ciudad);
                                 view_cv_username = findViewById(R.id.view_cv_username);
                                 view_cv_correo = findViewById(R.id.view_cv_correo);
+                                imgPersona = findViewById(R.id.imgPersona);
+
+
                                 view_cv_nombres_apellidos.setText(response1.getString("nombres") + " " + response1.getString("apellidos"));
                                 view_cv_fecha_nacimiento.setText(response1.get("fechaNacimiento").toString());
                                 view_cv_cedula_ciudadanina.setText(response1.getString("cedula"));
@@ -84,6 +93,21 @@ public class InicioCV extends AppCompatActivity {
                                 view_cv_genero.setText(response1.getString("genero"));
                                 view_cv_ciudad.setText(response1.getJSONObject("ciudad").getString("nombre"));
                                 view_cv_correo.setText(response1.getJSONObject("usuario").getString("email"));
+
+                                String urlfoto = "https://pespringboots3bucket.s3.amazonaws.com/" + response1.getString("rutaImagen");
+
+                                System.out.println("urlfoto: " + urlfoto);
+
+
+                                ImageRequest imageRequest = new ImageRequest(urlfoto, response2 -> {
+                                    imgPersona.setImageBitmap(response2);
+                                }, 0, 0, ImageView.ScaleType.CENTER, null, error -> {
+                                    Toast.makeText(InicioCV.this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                                });
+
+                                requestQueue2.add(imageRequest);
+
+
                             } catch (Exception e) {
                                 Toast.makeText(InicioCV.this, "Error al mostrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -101,6 +125,7 @@ public class InicioCV extends AppCompatActivity {
         });
         requestQueue.add(jsonArrayRequest);
     }
+
     private void curriculimVitae(String parseInt) {
         String URL = "http://springgc1-env.eba-mf2fnuvf.us-east-1.elasticbeanstalk.com/estudiantes/" + parseInt;
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -141,11 +166,13 @@ public class InicioCV extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cerrar_sesion) {
@@ -156,4 +183,6 @@ public class InicioCV extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

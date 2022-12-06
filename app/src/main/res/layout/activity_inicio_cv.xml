@@ -53,13 +53,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" android:id="@+id/tableLayout"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout">
 
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:layout_gravity="center">
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
-                    android:id="@+id/imgPersona" android:layout_weight="2"/>
-        </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView
                     android:text="@string/datos_personales"
@@ -67,6 +60,15 @@
                     android:gravity="center"
                     android:layout_height="wrap_content" android:id="@+id/datos_personales" android:layout_weight="2"/>
         </TableRow>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:layout_gravity="center">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/imgPersona" android:layout_weight="2"/>
+        </TableRow>
+
 
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <TextView

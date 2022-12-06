@@ -14,10 +14,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import ec.edu.insta.movilgc1.R;
 import ec.edu.insta.movilgc1.ui.MainActivity;
+import ec.edu.insta.movilgc1.ui.employe.InicioCV;
 import org.json.JSONException;
 import org.json.JSONObject;
 public class CurriculumVitae extends AppCompatActivity {
@@ -26,6 +28,8 @@ public class CurriculumVitae extends AppCompatActivity {
             view_cv_direccion, view_cv_correo, view_cv_telefono, view_cv_estado_civil, view_cv_rol, view_cv_genero, view_cv_ciudad;
     private ImageView btn_regresar_pefil_empresa_cv;
     private Button btn_activar, btn_desactivar;
+
+    private ImageView imgPersona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +81,8 @@ public class CurriculumVitae extends AppCompatActivity {
                     view_cv_ciudad = findViewById(R.id.view_cv_ciudad);
                     view_cv_username = findViewById(R.id.view_cv_username);
                     view_cv_correo = findViewById(R.id.view_cv_correo);
+                    imgPersona = findViewById(R.id.imgPersona);
+
                     view_cv_nombres_apellidos.setText(response.getString("nombres") + " " + response.getString("apellidos"));
                     view_cv_fecha_nacimiento.setText(response.get("fechaNacimiento").toString());
                     view_cv_username.setText(response.getJSONObject("usuario").getString("username"));
@@ -88,6 +94,23 @@ public class CurriculumVitae extends AppCompatActivity {
                     view_cv_genero.setText(response.getString("genero"));
                     view_cv_ciudad.setText(response.getJSONObject("ciudad").getString("nombre"));
                     view_cv_correo.setText(response.getJSONObject("usuario").getString("email"));
+
+
+                    String urlfoto = "https://pespringboots3bucket.s3.amazonaws.com/" + response.getString("rutaImagen");
+
+                    System.out.println("urlfoto: " + urlfoto);
+
+
+                    ImageRequest imageRequest = new ImageRequest(urlfoto, response2 -> {
+                        imgPersona.setImageBitmap(response2);
+                    }, 0, 0, ImageView.ScaleType.CENTER, null, error -> {
+                        Toast.makeText(CurriculumVitae.this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                    });
+
+                    requestQueue.add(imageRequest);
+
+
+
                     btn_activar = findViewById(R.id.btn_activar);
                     btn_desactivar = findViewById(R.id.btn_desactivar);
                     if (response.getJSONObject("usuario").getBoolean("estado") == true) {
